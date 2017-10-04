@@ -1,0 +1,196 @@
+var _user$project$Modal$isModalActive = function (d) {
+	return A2(
+		_elm_lang$core$List$any,
+		function (v) {
+			return _elm_lang$core$Native_Utils.eq(v, true);
+		},
+		_elm_lang$core$Dict$values(d));
+};
+var _user$project$Modal$isModalActiveString = function (model) {
+	return _user$project$Modal$isModalActive(model.activeArtwork) ? 'is-active' : '';
+};
+var _user$project$Modal$attributeDisableScroll = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'position', _1: 'fixed'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'overflow-x', _1: 'hidden'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'overflow-y', _1: 'auto'},
+				_1: {ctor: '[]'}
+			}
+		}
+	});
+var _user$project$Modal$buttonCloseModal = A2(
+	_elm_lang$html$Html$button,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('modal-close is-large'),
+		_1: {
+			ctor: '::',
+			_0: A2(_elm_lang$html$Html_Attributes$attribute, 'aria-label', 'close'),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Events$onClick(_user$project$Messages$CloseModal),
+				_1: {ctor: '[]'}
+			}
+		}
+	},
+	{ctor: '[]'});
+var _user$project$Modal$imgInModal = F2(
+	function (path, bulmaAttrs) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class(
+					A2(_elm_lang$core$Basics_ops['++'], 'image is-unselectable', bulmaAttrs)),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$img,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$src(path),
+						_1: {ctor: '[]'}
+					},
+					{ctor: '[]'}),
+				_1: {ctor: '[]'}
+			});
+	});
+var _user$project$Modal$divTileImageContainer = F2(
+	function (imgPath, attrsForImage) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('tile is-child'),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: A2(_user$project$Modal$imgInModal, imgPath, attrsForImage),
+				_1: {ctor: '[]'}
+			});
+	});
+var _user$project$Modal$divTileAncestor = F2(
+	function (imgPath, attrsForImage) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('tile is-ancestor'),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: A2(_user$project$Modal$divTileImageContainer, imgPath, attrsForImage),
+				_1: {ctor: '[]'}
+			});
+	});
+var _user$project$Modal$divModalContent = F2(
+	function (imgPath, attrsForImage) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('modal-content'),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: A2(_user$project$Modal$divTileAncestor, imgPath, attrsForImage),
+				_1: {ctor: '[]'}
+			});
+	});
+var _user$project$Modal$attributeCenter = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'justify-content', _1: 'center'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'align-items', _1: 'center'},
+				_1: {ctor: '[]'}
+			}
+		}
+	});
+var _user$project$Modal$divModalBackground = F2(
+	function (imgPath, attrsForImage) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('modal-background'),
+				_1: {
+					ctor: '::',
+					_0: _user$project$Modal$attributeCenter,
+					_1: {
+						ctor: '::',
+						_0: _user$project$Modal$attributeDisableScroll,
+						_1: {ctor: '[]'}
+					}
+				}
+			},
+			{
+				ctor: '::',
+				_0: A2(_user$project$Modal$divModalContent, imgPath, attrsForImage),
+				_1: {ctor: '[]'}
+			});
+	});
+var _user$project$Modal$divModal_ = F3(
+	function (model, imgPath, attrsForImage) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class(
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						'modal',
+						_user$project$Modal$isModalActiveString(model))),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: A2(_user$project$Modal$divModalBackground, imgPath, attrsForImage),
+				_1: {
+					ctor: '::',
+					_0: _user$project$Modal$buttonCloseModal,
+					_1: {ctor: '[]'}
+				}
+			});
+	});
+var _user$project$Modal$divModal = function (model) {
+	var theTrueVine = A2(
+		_elm_lang$core$Dict$filter,
+		F2(
+			function (_p0, v) {
+				return _elm_lang$core$Native_Utils.eq(v, true);
+			}),
+		model.activeArtwork);
+	var trueVineAsList = _elm_lang$core$Dict$toList(theTrueVine);
+	var key = function () {
+		var _p1 = _elm_lang$core$List$head(trueVineAsList);
+		if (_p1.ctor === 'Nothing') {
+			return '';
+		} else {
+			return _elm_lang$core$Tuple$first(_p1._0);
+		}
+	}();
+	var imagePath = function () {
+		var _p2 = A2(_elm_lang$core$Dict$get, key, _user$project$ImagePaths$allPaths);
+		if (_p2.ctor === 'Nothing') {
+			return '';
+		} else {
+			return _p2._0;
+		}
+	}();
+	return A3(_user$project$Modal$divModal_, model, imagePath, '');
+};

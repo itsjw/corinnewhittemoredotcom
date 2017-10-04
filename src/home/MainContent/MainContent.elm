@@ -5,41 +5,43 @@ import Html.Attributes exposing (class, style, src)
 import MainCopy exposing (bioCopy)
 
 
+-- Styles -----------------------------------------------------------------------
+-- custom styles for appropriate padding within tiles:
+
+
 attributeCenterPaddingCopy : Attribute msg
 attributeCenterPaddingCopy =
     style
         [ ( "padding-left", "150px" )
         , ( "padding-right", "150px" )
-        , ( "padding-top", "100px" )
+        , ( "padding-top", "75px" )
+        , ( "display", "flex" )
+        , ( "flex-direction", "column" )
+        , ( "justify-content", "center" )
         ]
 
 
 attributeCenterPaddingImages : Attribute msg
 attributeCenterPaddingImages =
     style
-        [ ( "padding-left", "100px" )
-        , ( "padding-right", "100px" )
-        , ( "padding-top", "75px" )
+        [ ( "padding-left", "175px" )
+        , ( "padding-top", "100px" )
         ]
 
 
-duckImage : String
-duckImage =
-    "/Users/joseph/Code/Elm/corinnewhittemoredotcomTwo/images/duck.jpg"
+attributeTopPaddingPaperDoll : Attribute msg
+attributeTopPaddingPaperDoll =
+    style [ ( "padding-top", "25px" ) ]
 
 
-turnupHeadImage : String
-turnupHeadImage =
-    "/Users/joseph/Code/Elm/corinnewhittemoredotcomTwo/images/turnupHead.jpg"
-
-
-paperDollImage : String
-paperDollImage =
-    "/Users/joseph/Code/Elm/corinnewhittemoredotcomTwo/images/paperDoll3.jpg"
+attributeZoomPaperDool : Attribute msg
+attributeZoomPaperDool =
+    style [ ( "zoom", "0.70" ) ]
 
 
 
 -- Content ---------------------------------------------------------------------
+-- biography copy:
 
 
 divContent : Html msg
@@ -50,14 +52,16 @@ divContent =
 
 
 -- Tiles -----------------------------------------------------------------------
+-- tile for biography copy:
 
 
 divTileIs6Copy : Html msg
 divTileIs6Copy =
-    div [ class "tile is-6" ]
+    div
+        [ class "tile is-6" ]
         [ div [ class "tile" ]
             [ article [ class "tile is-vertical", attributeCenterPaddingCopy ]
-                [ p [ class "title" ] [ text "Corinne Whittemore" ]
+                [ p [ class "title is-size-2 font-garamond" ] [ text "Corinne Whittemore" ]
                 , divContent
                 ]
             ]
@@ -70,51 +74,32 @@ divTileIs6Copy =
 
 figureImagePaperdoll : Html msg
 figureImagePaperdoll =
-    figure [ class "image" ] [ img [ src paperDollImage ] [] ]
-
-
-figureImageDuck : Html msg
-figureImageDuck =
-    figure [ class "image is-square" ] [ img [ src duckImage ] [] ]
-
-
-figureImageTurnup : Html msg
-figureImageTurnup =
-    figure [ class "image is-square" ] [ img [ src turnupHeadImage ] [] ]
+    figure [ class "image is-480x853", attributeZoomPaperDool ] [ img [ src "./images/paperDoll3.jpg" ] [] ]
 
 
 
----- is-3 tiles ------------------------
+-- tile for the three images:
 
 
-divTileIs3Images : Html msg
-divTileIs3Images =
-    div [ class "tile is-parent is-vertical" ]
-        [ div [ class "tile is-child" ] [ figureImageTurnup ]
-        , div [ class "tile is-child" ] [ figureImageDuck ]
-        ]
-
-
-divTileIs3PaperDoll : Html msg
-divTileIs3PaperDoll =
-    div [ class "tile" ]
-        [ div [ class "tile", style [ ( "padding-top", "50px" ) ] ] [ figureImagePaperdoll ] ]
-
-
-divTileIs6Images : Html msg
-divTileIs6Images =
+divTileIs6Image : Html msg
+divTileIs6Image =
     div [ class "tile is-6", attributeCenterPaddingImages ]
-        [ divTileIs3Images, divTileIs3PaperDoll ]
+        [ figureImagePaperdoll ]
 
 
 divTileIsAncestor : Html msg
 divTileIsAncestor =
     div [ class "tile is-ancestor" ]
         [ divTileIs6Copy
-        , divTileIs6Images
+        , divTileIs6Image
         ]
 
 
 mainContent : Html msg
 mainContent =
     div [] [ divTileIsAncestor ]
+
+
+main : Html msg
+main =
+    mainContent

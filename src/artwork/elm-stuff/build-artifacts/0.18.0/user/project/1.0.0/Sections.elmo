@@ -1,0 +1,35 @@
+var _user$project$Sections$sections = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{ctor: '[]'});
+var _user$project$Sections$sectionParent = A2(
+	_elm_lang$html$Html$section,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('section'),
+		_1: {ctor: '[]'}
+	},
+	{ctor: '[]'});
+var _user$project$Sections$divContainer = A2(
+	_elm_lang$html$Html$div,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('container'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$h1,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('title'),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text(''),
+				_1: {ctor: '[]'}
+			}),
+		_1: {ctor: '[]'}
+	});

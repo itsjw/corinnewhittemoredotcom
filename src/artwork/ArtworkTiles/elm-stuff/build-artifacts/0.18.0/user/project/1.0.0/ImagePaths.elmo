@@ -1,0 +1,108 @@
+var _user$project$ImagePaths$pathsImportantPapers = _elm_lang$core$Dict$fromList(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'importantPaper', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/importantPapers/importantPaper.jpg'},
+		_1: {ctor: '[]'}
+	});
+var _user$project$ImagePaths$pathsTheItalyJournal = _elm_lang$core$Dict$fromList(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'bed', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/theItalyJournals/bed.gif'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'bush', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/theItalyJournals/bush.gif'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'period', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/theItalyJournals/period.gif'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'spent', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/theItalyJournals/spent.gif'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'test', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/theItalyJournals/test.gif'},
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		}
+	});
+var _user$project$ImagePaths$pathsPrivateDisturbance = _elm_lang$core$Dict$fromList(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'excessiveForce', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/privateDisturbance/4_excessiveForce_thumb.png'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'battleField', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/privateDisturbance/5_battleField_thumb.png'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'mindGames', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/privateDisturbance/3_mindGames_thumb.png'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'shiftingPerspective', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/privateDisturbance/2_shiftingPerspective_thumb.png'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'subtlePresence', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/privateDisturbance/1_subtlePresence_thumb.png'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'noPrisoners', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/privateDisturbance/6_noPrisoners_thumb.png'},
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		}
+	});
+var _user$project$ImagePaths$pathsValleyCultura = _elm_lang$core$Dict$fromList(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'mariaMarilyn', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/valleyCultura/MariaMarilyn_thumb.png'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'hablaTex', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/valleyCultura/HablaTex_thumb.png'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'digitalLandscape', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/valleyCultura/DigitalLandscape_thumb.png'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'rodriguezFlowerShop', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/valleyCultura/Rodriguez-Flower-Shop_thumb.png'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'crossing', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/valleyCultura/crossing_thumb.png'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'sunsetMinimart', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/valleyCultura/SunsetMiniMart_thumb2.png'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'marthasFruitStand', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/valleyCultura/MarthasFruitStand_thumb2.png'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'marthasFruitStandTwo', _1: '/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/valleyCultura/MarthasFruitStand3_2_thumb.png'},
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	});
+var _user$project$ImagePaths$allPaths = _elm_lang$core$Dict$fromList(
+	A2(
+		_elm_lang$core$Basics_ops['++'],
+		_elm_lang$core$Dict$toList(_user$project$ImagePaths$pathsValleyCultura),
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Dict$toList(_user$project$ImagePaths$pathsPrivateDisturbance),
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Dict$toList(_user$project$ImagePaths$pathsTheItalyJournal),
+				_elm_lang$core$Dict$toList(_user$project$ImagePaths$pathsImportantPapers)))));
+var _user$project$ImagePaths$unwrapPath = F2(
+	function (key, paths) {
+		var _p0 = A2(_elm_lang$core$Dict$get, key, paths);
+		if (_p0.ctor === 'Nothing') {
+			return '';
+		} else {
+			return _p0._0;
+		}
+	});

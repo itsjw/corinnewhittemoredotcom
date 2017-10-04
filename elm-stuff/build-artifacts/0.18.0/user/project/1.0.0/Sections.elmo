@@ -1,0 +1,4 @@
+var _user$project$Sections$sections = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{ctor: '[]'});

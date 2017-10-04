@@ -1,0 +1,259 @@
+var _user$project$ItalyJournals$figureImgTest = A2(
+	_elm_lang$html$Html$figure,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('image is-401x502'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$img,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$src(
+					A2(_user$project$ImagePaths$unwrapPath, 'test', _user$project$ImagePaths$pathsTheItalyJournal)),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$alt('Test'),
+					_1: {ctor: '[]'}
+				}
+			},
+			{ctor: '[]'}),
+		_1: {ctor: '[]'}
+	});
+var _user$project$ItalyJournals$figureImgSpent = A2(
+	_elm_lang$html$Html$figure,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('image is-401x502'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$img,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$src(
+					A2(_user$project$ImagePaths$unwrapPath, 'spent', _user$project$ImagePaths$pathsTheItalyJournal)),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$alt('Spent'),
+					_1: {ctor: '[]'}
+				}
+			},
+			{ctor: '[]'}),
+		_1: {ctor: '[]'}
+	});
+var _user$project$ItalyJournals$figureImgPeriod = A2(
+	_elm_lang$html$Html$figure,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('image is-401x502'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$img,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$src(
+					A2(_user$project$ImagePaths$unwrapPath, 'period', _user$project$ImagePaths$pathsTheItalyJournal)),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$alt('Period'),
+					_1: {ctor: '[]'}
+				}
+			},
+			{ctor: '[]'}),
+		_1: {ctor: '[]'}
+	});
+var _user$project$ItalyJournals$figureImgBush = A2(
+	_elm_lang$html$Html$figure,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('image is-401x502'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$img,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$src(
+					A2(_user$project$ImagePaths$unwrapPath, 'bush', _user$project$ImagePaths$pathsTheItalyJournal)),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$alt('Bush'),
+					_1: {ctor: '[]'}
+				}
+			},
+			{ctor: '[]'}),
+		_1: {ctor: '[]'}
+	});
+var _user$project$ItalyJournals$figureImgBed = A2(
+	_elm_lang$html$Html$figure,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('image is-401x502'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$img,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$src(
+					A2(_user$project$ImagePaths$unwrapPath, 'bed', _user$project$ImagePaths$pathsTheItalyJournal)),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$alt('Bed'),
+					_1: {ctor: '[]'}
+				}
+			},
+			{ctor: '[]'}),
+		_1: {ctor: '[]'}
+	});
+var _user$project$ItalyJournals$divTileIs12 = A2(
+	_elm_lang$html$Html$div,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('tile is-12 is-parent'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('tile is-child box'),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _user$project$ItalyJournals$figureImgBed,
+				_1: {ctor: '[]'}
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('tile is-child box'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _user$project$ItalyJournals$figureImgBush,
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$class('tile is-child box'),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _user$project$ItalyJournals$figureImgPeriod,
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$class('tile is-child box'),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: _user$project$ItalyJournals$figureImgSpent,
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('tile is-child box'),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _user$project$ItalyJournals$figureImgTest,
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		}
+	});
+var _user$project$ItalyJournals$divTileItalyJournals = A2(
+	_elm_lang$html$Html$div,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('tile is-ancestor'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: _user$project$ItalyJournals$divTileIs12,
+		_1: {ctor: '[]'}
+	});
+var _user$project$ItalyJournals$sectionItalyJournals = A2(
+	_elm_lang$html$Html$section,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('section'),
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'zoom', _1: '0.8'},
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		}
+	},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('container'),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _user$project$ItalyJournals$divTileItalyJournals,
+				_1: {ctor: '[]'}
+			}),
+		_1: {ctor: '[]'}
+	});
+var _user$project$ItalyJournals$content = A2(
+	_elm_lang$html$Html$div,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$id('italy-journals'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: _user$project$ItalyJournals$sectionItalyJournals,
+		_1: {ctor: '[]'}
+	});
