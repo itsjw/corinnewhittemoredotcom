@@ -2,7 +2,8 @@ module ItalyJournals exposing (content)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import ImagePaths exposing (ImagePaths, unwrapPath, pathsTheItalyJournal)
+import ImagePaths exposing (pathsTheItalyJournal)
+import Util exposing (ImagePaths, unwrapPath)
 import Messages exposing (Msg(Bed, Bush, Period, Spent, Test))
 
 

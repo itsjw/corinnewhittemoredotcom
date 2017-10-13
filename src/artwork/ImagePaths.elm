@@ -1,52 +1,35 @@
 module ImagePaths exposing (..)
 
-import Dict
-
-
-type alias ImagePath =
-    String
-
-
-type alias ImagePaths =
-    Dict.Dict String String
-
-
-unwrapPath : String -> ImagePaths -> ImagePath
-unwrapPath key paths =
-    case Dict.get key paths of
-        Nothing ->
-            ""
-
-        Just val ->
-            val
+import Dict exposing (Dict)
+import Util exposing (ImagePath, ImagePaths, artworkStrings, BulmaDimension)
 
 
 pathsValleyCultura : ImagePaths
 pathsValleyCultura =
     Dict.fromList
         [ ( "mariaMarilyn"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/valleyCultura/MariaMarilyn_thumb.png"
+          , "../../images/artwork/valleyCultura/MariaMarilyn_thumb.png"
           )
         , ( "hablaTex"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/valleyCultura/HablaTex_thumb.png"
+          , "../../images/artwork/valleyCultura/HablaTex_thumb.png"
           )
         , ( "digitalLandscape"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/valleyCultura/DigitalLandscape_thumb.png"
+          , "../../images/artwork/valleyCultura/DigitalLandscape_thumb.png"
           )
         , ( "rodriguezFlowerShop"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/valleyCultura/Rodriguez-Flower-Shop_thumb.png"
+          , "../../images/artwork/valleyCultura/Rodriguez-Flower-Shop_thumb.png"
           )
         , ( "crossing"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/valleyCultura/crossing_thumb.png"
+          , "../../images/artwork/valleyCultura/crossing_thumb.png"
           )
         , ( "sunsetMinimart"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/valleyCultura/SunsetMiniMart_thumb2.png"
+          , "../../images/artwork/valleyCultura/SunsetMiniMart_thumb.png"
           )
         , ( "marthasFruitStand"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/valleyCultura/MarthasFruitStand_thumb2.png"
+          , "../../images/artwork/valleyCultura/MarthasFruitStand_thumb.png"
           )
         , ( "marthasFruitStandTwo"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/valleyCultura/MarthasFruitStand3_2_thumb.png"
+          , "../../images/artwork/valleyCultura/MarthasFruitStand_thumb2.png"
           )
         ]
 
@@ -55,22 +38,22 @@ pathsPrivateDisturbance : ImagePaths
 pathsPrivateDisturbance =
     Dict.fromList
         [ ( "excessiveForce"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/privateDisturbance/4_excessiveForce_thumb.png"
+          , "../../images/artwork/privateDisturbance/1_subtlePresence_thumb.png"
           )
         , ( "battleField"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/privateDisturbance/5_battleField_thumb.png"
+          , "../../images/artwork/privateDisturbance/2_shiftingPerspective_thumb.png"
           )
         , ( "mindGames"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/privateDisturbance/3_mindGames_thumb.png"
+          , "../../images/artwork/privateDisturbance/3_mindGames_thumb.png"
           )
         , ( "shiftingPerspective"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/privateDisturbance/2_shiftingPerspective_thumb.png"
+          , "../../images/artwork/privateDisturbance/4_excessiveForce_thumb.png"
           )
         , ( "subtlePresence"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/privateDisturbance/1_subtlePresence_thumb.png"
+          , "../../images/artwork/privateDisturbance/5_battleField_thumb.png"
           )
         , ( "noPrisoners"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/privateDisturbance/6_noPrisoners_thumb.png"
+          , "../../images/artwork/privateDisturbance/6_noPrisoners_thumb.png"
           )
         ]
 
@@ -79,19 +62,19 @@ pathsTheItalyJournal : ImagePaths
 pathsTheItalyJournal =
     Dict.fromList
         [ ( "bed"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/theItalyJournals/bed.gif"
+          , "../../images/artwork/theItalyJournals/bed.gif"
           )
         , ( "bush"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/theItalyJournals/bush.gif"
+          , "../../images/artwork/theItalyJournals/bush.gif"
           )
         , ( "period"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/theItalyJournals/period.gif"
+          , "../../images/artwork/theItalyJournals/period.gif"
           )
         , ( "spent"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/theItalyJournals/spent.gif"
+          , "../../images/artwork/theItalyJournals/spent.gif"
           )
         , ( "test"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/theItalyJournals/test.gif"
+          , "../../images/artwork/theItalyJournals/test.gif"
           )
         ]
 
@@ -100,9 +83,127 @@ pathsImportantPapers : ImagePaths
 pathsImportantPapers =
     Dict.fromList
         [ ( "importantPaper"
-          , "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/artwork/importantPapers/importantPaper.jpg"
+          , "../../images/artwork/importantPapers/importantPaper.jpg"
           )
         ]
+
+
+artworkDimensionsMobile : Dict String BulmaDimension
+artworkDimensionsMobile =
+    let
+        dimensions =
+            [ -- Valley Cultura
+              "is-720x255" -- Maria Marilyn
+            , "is-720x255" -- Habla Tex
+            , "is-720x255" -- Digital Landscape
+            , "is-720x255" -- Rodriguez Flower Shop
+            , "is-720x255" -- Crossing
+            , "is-720x255" -- Sunset Minimart
+            , "is-720x255" -- Marthas Fruitstand
+            , "is-720x255" -- Marthas Fruitstand Two
+
+            -- Private Disturbance
+            , "is-720x103" -- Excessive Force
+            , "is-720x103" -- Battle Field
+            , "is-720x103" -- Mind Games
+            , "is-720x103" -- Shifting Perspective
+            , "is-720x103" -- Subtle Presence
+            , "is-720x103" -- No Prisoners
+
+            -- The Italy Journals
+            , "is-720x900" -- bed
+            , "is-720x900" -- bush
+            , "is-720x900" -- period
+            , "is-720x900" -- spent
+            , "is-720x900" -- test
+
+            -- Important Papers
+            , ""
+
+            -- Important Paper: No Dimension Implemented Yet because a
+            -- dummy source
+            ]
+    in
+        Dict.fromList <| List.map2 (,) artworkStrings dimensions
+
+
+artworkDimensionsDesktop : Dict String BulmaDimension
+artworkDimensionsDesktop =
+    let
+        dimensions =
+            [ -- Valley Cultura
+              "is-1024x364" -- Maria Marilyn
+            , "is-1024x364" -- Habla Tex
+            , "is-1024x364" -- Digital Landscape
+            , "is-1024x364" -- Rodriguez Flowershop
+            , "is-1024x364" -- Crossing
+            , "is-1024x364" -- Sunset Minimart
+            , "is-1024x364" -- Marthas Fruitstand
+            , "is-1024x364" -- Marthas Fruitstand Two
+
+            -- Private Disturbance
+            , "is-1025x146" -- Excessive Force
+            , "is-1025x146" -- Battle Field
+            , "is-1025x146" -- Mind Games
+            , "is-1025x146" -- Shifting Perspective
+            , "is-1025x146" -- Subtle Presence
+            , "is-1025x146" -- No Prisoners
+
+            -- The Italy Journals
+            , "is-615x768" -- Bed
+            , "is-615x768" -- Bush
+            , "is-615x768" -- Period
+            , "is-615x768" -- Spent
+            , "is-615x768" -- Test
+
+            -- Important Papers
+            , ""
+
+            -- Important Paper: No Dimension Implemented Yet because a
+            -- dummy source
+            ]
+    in
+        Dict.fromList <| List.map2 (,) artworkStrings dimensions
+
+
+allPathsHighRes : ImagePaths
+allPathsHighRes =
+    let
+        highResPaths =
+            [ -- Valley Cultura
+              "../../images/artwork/valleyCultura/MariaMarilyn_2.png"
+            , "../../images/artwork/valleyCultura/HablaTex.png"
+            , "../../images/artwork/valleyCultura/DigitalLandscape.png"
+            , "../../images/artwork/valleyCultura/Rodriguez-Flower-Shop.png"
+            , "../../images/artwork/valleyCultura/crossing_2.png"
+            , "../../images/artwork/valleyCultura/SunsetMiniMart.png"
+            , "../../images/artwork/valleyCultura/MarthasFruitStand_2.png"
+            , "../../images/artwork/valleyCultura/MarthasFruitStand3_2.png"
+
+            -- Private Disturbance
+            , "../../images/artwork/privateDisturbance/1_SubtlePresence.png"
+            , "../../images/artwork/privateDisturbance/2_ShiftingPerspective.png"
+            , "../../images/artwork/privateDisturbance/3_MindGames.png"
+            , "../../images/artwork/privateDisturbance/4_ExcessiveForce.png"
+            , "../../images/artwork/privateDisturbance/5_Battlefield.png"
+            , "../../images/artwork/privateDisturbance/6_NoPrisoners.png"
+
+            -- The Italy Journals
+            , "../../images/artwork/theItalyJournals/bed.png"
+            , "../../images/artwork/theItalyJournals/bush.png"
+            , "../../images/artwork/theItalyJournals/period.png"
+            , "../../images/artwork/theItalyJournals/spent.png"
+            , "../../images/artwork/theItalyJournals/test.gif"
+
+            -- Important Papers
+            , "../../images/artwork/importantPapers/importantPaper.jpg"
+            ]
+    in
+        Dict.fromList <| List.map2 (,) artworkStrings highResPaths
+
+
+
+-- paths to thumbnails (low res):
 
 
 allPaths : ImagePaths

@@ -2,9 +2,12 @@ module Artwork exposing (..)
 
 import Html exposing (Attribute, section, Html, text, div, ul, li, a)
 import Html.Attributes exposing (class, style, href)
-import Html.Events exposing (onClick)
+import Html.Events exposing (onClick, on)
 import Hero exposing (sectionHeroArtwork)
+import Json.Decode as Json
+import Keyboard
 import ItalyJournals exposing (content)
+import ImagePaths exposing (artworkDimensionsDesktop, artworkDimensionsMobile)
 import ImportantPapers exposing (content)
 import Messages exposing (..)
 import Model exposing (..)
@@ -12,6 +15,7 @@ import Modal exposing (..)
 import NavBar exposing (navNavBar)
 import PrivateDisturbance exposing (content)
 import Update exposing (..)
+import Util exposing (unwrapBulmaDimension)
 import ValleyCultura exposing (content)
 
 
@@ -55,16 +59,30 @@ init =
 -- view ------------------------------------------------------------------------
 
 
+onMouseMove : msg -> Attribute msg
+onMouseMove message =
+    on "mousemove" (Json.succeed message)
+
+
 view : Model -> Html Msg
 view model =
-    div [ toggleScrollDisable model ]
-        [ div []
-            [ navNavBar
+    div []
+        [ div [ onMouseMove GetScrollPos, toggleScrollDisable model ]
+            [ navNavBar "../../images/ecmw_black.png"
             , sectionHeroArtwork
             , divTabs model
             , divArtworkContent model
-            , divModal model
             ]
+        , divModal
+            model
+            (unwrapBulmaDimension
+                (selectedArtwork model)
+                artworkDimensionsMobile
+            )
+            (unwrapBulmaDimension
+                (selectedArtwork model)
+                artworkDimensionsDesktop
+            )
         ]
 
 
@@ -139,4 +157,4 @@ divTabs model =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    Sub.none
+    Sub.batch [ Keyboard.presses KeyMsg ]

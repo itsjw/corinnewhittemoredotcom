@@ -2,8 +2,9 @@ module ValleyCultura exposing (content)
 
 import Html exposing (Attribute, figure, section, text, Html, div, img, p, a)
 import Html.Attributes exposing (style, class, src, alt, id)
-import Html.Events exposing (onClick)
-import ImagePaths exposing (ImagePath, ImagePaths, unwrapPath, pathsValleyCultura)
+import ArtworkCopy exposing (valleyCulturaArtistStatement, valleyCulturaMaterialsProcess)
+import ImagePaths exposing (pathsValleyCultura)
+import Util exposing (ImagePath, ImagePaths, unwrapPath)
 import Messages
     exposing
         ( Msg
@@ -16,11 +17,7 @@ import Messages
             , MarthasFruitStand
             , MarthasFruitStandTwo
             )
-        )
-import ArtworkCopy
-    exposing
-        ( valleyCulturaArtistStatement
-        , valleyCulturaMaterialsProcess
+        , divTileImgGenerator
         )
 
 
@@ -45,45 +42,17 @@ attributeTextAlign =
     style [ ( "text-align", "justify" ) ]
 
 
-stylePaddingColumns : Attribute msg
-stylePaddingColumns =
+attributePaddingColumns : Attribute msg
+attributePaddingColumns =
     style
         [ ( "padding-top", "84px" )
         , ( "padding-bottom", "34px" )
         ]
 
 
-stylePaddingImgCrossing : Attribute msg
-stylePaddingImgCrossing =
+attributePaddingImgCrossing : Attribute msg
+attributePaddingImgCrossing =
     style [ ( "padding-top", "28px" ) ]
-
-
-type alias BulmaDimension =
-    String
-
-
-
--- example BulmaDimension: "is-169x142"
-
-
-type alias HtmlAlt =
-    String
-
-
-
--- example HtmlAlt: "blah"
--- This is just an alternative
--- String for an image in an href.
-
-
-divTileImgGenerator : ImagePath -> HtmlAlt -> BulmaDimension -> Msg -> Html Msg
-divTileImgGenerator path altStr dimension msg =
-    div [ class "tile is-child" ]
-        [ a [ onClick msg ]
-            [ figure [ class <| "image is-unselectable" ++ dimension ]
-                [ img [ src path, alt altStr ] [] ]
-            ]
-        ]
 
 
 
@@ -133,7 +102,7 @@ divTileTwoVerticalImages =
 
 divColumnsImagesAndCopy : Html Msg
 divColumnsImagesAndCopy =
-    div [ class "columns", stylePaddingColumns ]
+    div [ class "columns", attributePaddingColumns ]
         [ div [ class "column" ] [ divTileTwoVerticalImages ]
         , div [ class "column" ] [ divTileMaterialsAndProcess ]
         ]
@@ -141,7 +110,7 @@ divColumnsImagesAndCopy =
 
 divTileSecondHalf : Html Msg
 divTileSecondHalf =
-    div [ class "tile is-vertical is-parent", stylePaddingImgCrossing ]
+    div [ class "tile is-vertical is-parent", attributePaddingImgCrossing ]
         [ divTileImgCrossing
         , divColumnsImagesAndCopy
         ]

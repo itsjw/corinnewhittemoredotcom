@@ -1,12 +1,36 @@
-module Util exposing (divTileImgGenerator)
+module Util exposing (..)
+
+import Dict exposing (Dict)
+
+
+-- This is just an alternative
+-- String for an image in an href.
 
 
 type alias ImagePath =
     String
 
 
+
+-- holds image paths
+-- Dictionary: (key : artworkString)
+-- (value : pathString)
+
+
+type alias ImagePaths =
+    Dict.Dict String String
+
+
+
+-- example HtmlAlt: "blah"
+
+
 type alias HtmlAlt =
     String
+
+
+
+-- example BulmaDimension: "is-169x142"
 
 
 type alias BulmaDimension =
@@ -14,17 +38,60 @@ type alias BulmaDimension =
 
 
 
--- example BulmaDimension: "is-169x142"
--- example HtmlAlt: "blah"
--- This is just an alternative
--- String for an image in an href.
+-- artwork strings that identify a piece of
+-- work within various sets
+-- meant to zip into dictionary with other lists
 
 
-divTileImgGenerator : ImagePath -> HtmlAlt -> BulmaDimension -> Msg -> Html Msg
-divTileImgGenerator path altStr dimension msg =
-    div [ class "tile is-child" ]
-        [ a [ onClick msg ]
-            [ figure [ class <| "image is-unselectable" ++ dimension ]
-                [ img [ src path, alt altStr ] [] ]
-            ]
-        ]
+artworkStrings : List String
+artworkStrings =
+    [ "mariaMarilyn" -- Valley Cultura
+    , "hablaTex"
+    , "digitalLandscape"
+    , "rodriguezFlowerShop"
+    , "crossing"
+    , "sunsetMinimart"
+    , "marthasFruitStand"
+    , "marthasFruitStandTwo"
+    , "excessiveForce" -- Private Disturbance
+    , "battleField"
+    , "mindGames"
+    , "shiftingPerspective"
+    , "subtlePresence"
+    , "noPrisoners"
+    , "bed" -- The Italy Journals
+    , "bush"
+    , "period"
+    , "spent"
+    , "test"
+    , "importantPaper" -- Important Papers
+    ]
+
+
+
+-- Functions -------------------------------------------------------------------
+--
+--
+--
+--
+-- unwraps a path from ImagePaths
+
+
+unwrapPath : String -> ImagePaths -> ImagePath
+unwrapPath key paths =
+    case Dict.get key paths of
+        Nothing ->
+            ""
+
+        Just val ->
+            val
+
+
+unwrapBulmaDimension : String -> Dict String BulmaDimension -> BulmaDimension
+unwrapBulmaDimension key dimensions =
+    case Dict.get key dimensions of
+        Nothing ->
+            ""
+
+        Just val ->
+            val

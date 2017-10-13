@@ -2,6 +2,9 @@ module Update exposing (..)
 
 import Messages exposing (..)
 import Model exposing (..)
+import Dom.Scroll
+import Dom exposing (Error)
+import Task exposing (Task)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -235,5 +238,51 @@ update msg model =
                 | activeArtwork = deactivateModal
                 , disableScroll = False
               }
+            , Task.attempt (always NoOp) (Dom.Scroll.toY "bb" model.windowPos)
+            )
+
+        GetScrollPos ->
+            ( model
+            , Task.attempt tryGettingY (Dom.Scroll.y "bb")
+            )
+
+        NewPos p ->
+            ( { model | windowPos = p }
             , Cmd.none
             )
+
+        ErrOnGetScroll s ->
+            ( { model | errors = s }
+            , Cmd.none
+            )
+
+        NoOp ->
+            ( model
+            , Cmd.none
+            )
+
+        KeyMsg keyCode ->
+            ( { model
+                | activeArtwork =
+                    if keyCode == 27 && model.disableScroll then
+                        deactivateModal
+                    else
+                        model.activeArtwork
+                , disableScroll =
+                    if keyCode == 27 && model.disableScroll then
+                        False
+                    else
+                        True
+              }
+            , Task.attempt (always NoOp) (Dom.Scroll.toY "bb" model.windowPos)
+            )
+
+
+tryGettingY : Result Error Float -> Msg
+tryGettingY r =
+    case r of
+        Ok val ->
+            NewPos val
+
+        Err val ->
+            ErrOnGetScroll <| toString val

@@ -1,12 +1,13 @@
 module Modal exposing (divModal)
 
 import Dict exposing (values)
-import Html exposing (Attribute, Html, div, img, button, a)
+import Html exposing (Attribute, section, figure, Html, div, img, button, a, text, em)
 import Html.Attributes exposing (class, src, alt, attribute, style)
 import Html.Events exposing (onClick)
 import Model exposing (..)
 import Messages exposing (Msg(CloseModal))
-import ImagePaths exposing (ImagePaths, ImagePath, allPaths)
+import ImagePaths exposing (allPathsHighRes)
+import Util exposing (BulmaDimension, ImagePath)
 
 
 attributeCenter : Attribute msg
@@ -18,33 +19,49 @@ attributeCenter =
         ]
 
 
-imgInModal : String -> String -> Html Msg
-imgInModal path bulmaAttrs =
-    div [ class <| "image is-unselectable" ++ bulmaAttrs ]
-        [ img [ src path ] [] ]
-
-
-divTileImageContainer : String -> String -> Html Msg
-divTileImageContainer imgPath attrsForImage =
-    div [ class "tile is-child" ] [ imgInModal imgPath attrsForImage ]
-
-
-divTileAncestor : String -> String -> Html Msg
-divTileAncestor imgPath attrsForImage =
-    div [ class "tile is-ancestor" ]
-        [ divTileImageContainer imgPath
-            attrsForImage
+imgInModal : ImagePath -> BulmaDimension -> BulmaDimension -> Html Msg
+imgInModal path bulmaAttrsMobile bulmaAttrsDesktop =
+    div []
+        [ figure [ class <| "image is-unselectable is-hidden-tablet " ++ bulmaAttrsMobile ] [ img [ src path ] [] ]
+        , figure
+            [ class <| "image is-unselectable is-hidden-mobile " ++ bulmaAttrsDesktop ]
+            [ img [ src path ] [] ]
         ]
 
 
-divModalContent : String -> String -> Html Msg
-divModalContent imgPath attrsForImage =
-    div [ class "modal-content" ] [ divTileAncestor imgPath attrsForImage ]
+divTileImageContainer : ImagePath -> BulmaDimension -> BulmaDimension -> Html Msg
+divTileImageContainer path bulmaAttrsMobile bulmaAttrsDesktop =
+    div [ class "tile is-child" ]
+        [ imgInModal path
+            bulmaAttrsMobile
+            bulmaAttrsDesktop
+        ]
 
 
-divModalBackground : String -> String -> Html Msg
-divModalBackground imgPath attrsForImage =
-    div [ class "modal-background", attributeCenter, attributeDisableScroll ] [ divModalContent imgPath attrsForImage ]
+divTileAncestor : ImagePath -> BulmaDimension -> BulmaDimension -> Html Msg
+divTileAncestor path bulmaAttrsMobile bulmaAttrsDesktop =
+    div [ class "tile is-ancestor" ]
+        [ divTileImageContainer path bulmaAttrsMobile bulmaAttrsDesktop
+        ]
+
+
+divModalContent : ImagePath -> BulmaDimension -> BulmaDimension -> Html Msg
+divModalContent path bulmaAttrsMobile bulmaAttrsDesktop =
+    div
+        [ class "modal-content"
+        , style [ ( "overflow", "visible" ) ]
+        ]
+        [ divTileAncestor path bulmaAttrsMobile bulmaAttrsDesktop
+        ]
+
+
+divModalBackground : ImagePath -> BulmaDimension -> BulmaDimension -> Html Msg
+divModalBackground path bulmaAttrsMobile bulmaAttrsDesktop =
+    div [ class "modal-background", attributeCenter, onClick CloseModal ]
+        [ divModalContent path
+            bulmaAttrsMobile
+            bulmaAttrsDesktop
+        ]
 
 
 
@@ -68,24 +85,23 @@ buttonCloseModal =
 attributeDisableScroll : Attribute msg
 attributeDisableScroll =
     style
-        [ ( "position", "fixed" )
-        , ( "overflow-x", "hidden" )
-        , ( "overflow-y", "auto" )
+        [ ( "position", "absolute" )
+        , ( "width", "100%" )
+        , ( "height", "100%" )
         ]
 
 
-divModal_ : Model -> String -> String -> Html Msg
-divModal_ model imgPath attrsForImage =
+divModal_ : Model -> ImagePath -> BulmaDimension -> BulmaDimension -> Html Msg
+divModal_ model path bulmaAttrsMobile bulmaAttrsDesktop =
     div
-        [ class <| "modal" ++ (isModalActiveString model)
-        ]
-        [ divModalBackground imgPath attrsForImage
+        [ class <| "modal " ++ (isModalActiveString model) ]
+        [ divModalBackground path bulmaAttrsMobile bulmaAttrsDesktop
         , buttonCloseModal
         ]
 
 
-divModal : Model -> Html Msg
-divModal model =
+divModal : Model -> BulmaDimension -> BulmaDimension -> Html Msg
+divModal model bulmaAttrsMobile bulmaAttrsDesktop =
     let
         -- unwrapping in an inelegant way
         -- i am open to suggestions...?
@@ -108,14 +124,14 @@ divModal model =
 
         imagePath : String
         imagePath =
-            case Dict.get key allPaths of
+            case Dict.get key allPathsHighRes of
                 Nothing ->
                     ""
 
                 Just path ->
                     path
     in
-        divModal_ model imagePath ""
+        divModal_ model imagePath bulmaAttrsMobile bulmaAttrsDesktop
 
 
 isModalActive : Dict.Dict String Bool -> Bool

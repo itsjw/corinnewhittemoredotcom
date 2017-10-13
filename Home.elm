@@ -9,4 +9,4 @@ import MainContent exposing (mainContent)
 main : Html msg
 main =
     div [ class "main-container" ]
-        [ navNavBar, mainContent ]
+        [ navNavBar "./images/ecmw_black.png", mainContent ]

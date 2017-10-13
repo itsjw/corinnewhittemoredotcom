@@ -27,25 +27,24 @@ stylePaddingRight =
     style [ ( "padding-right", "10px" ) ]
 
 
-imgLogo : Html msg
-imgLogo =
+imgLogo : String -> Html msg
+imgLogo path =
     img
-        [ src
-            "/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/ecmw_black.png"
+        [ src path
         , alt "ecmw"
         , height 28
         ]
         []
 
 
-aNavbarItem : Html msg
-aNavbarItem =
+aNavbarItem : String -> Html msg
+aNavbarItem path =
     a
         [ class "navbar-item hvr-sink"
         , style [ ( "background-color", "white" ) ]
         , href "/Users/joseph/Code/Elm/corinnewhittemoredotcom/home.html"
         ]
-        [ imgLogo ]
+        [ imgLogo path ]
 
 
 divNavbarBurger : Html msg
@@ -57,9 +56,9 @@ divNavbarBurger =
         ]
 
 
-divNavbarBrand : Html msg
-divNavbarBrand =
-    div [ class "navbar-brand" ] [ aNavbarItem, divNavbarBurger ]
+divNavbarBrand : String -> Html msg
+divNavbarBrand path =
+    div [ class "navbar-brand" ] [ aNavbarItem path, divNavbarBurger ]
 
 
 navBreadcrumb : Html msg
@@ -103,6 +102,6 @@ divNavbarMenu =
     div [ id "navMenubd", class "navbar-menu" ] [ divNavbarEnd ]
 
 
-navNavBar : Html msg
-navNavBar =
-    nav [ class "navbar" ] [ divNavbarBrand, divNavbarMenu ]
+navNavBar : String -> Html msg
+navNavBar path =
+    nav [ class "navbar" ] [ divNavbarBrand path, divNavbarMenu ]

@@ -74,7 +74,13 @@ divTileIs6Copy =
 
 figureImagePaperdoll : Html msg
 figureImagePaperdoll =
-    figure [ class "image is-480x853", attributeZoomPaperDool ] [ img [ src "./images/paperDoll3.jpg" ] [] ]
+    figure [ class "image is-480x853", attributeZoomPaperDool ]
+        [ img
+            [ src
+                "./images/paperDoll3.png"
+            ]
+            []
+        ]
 
 
 
