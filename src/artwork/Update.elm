@@ -272,7 +272,7 @@ update msg model =
                     if keyCode == 27 && model.disableScroll then
                         False
                     else
-                        True
+                        model.disableScroll
               }
             , Task.attempt (always NoOp) (Dom.Scroll.toY "bb" model.windowPos)
             )

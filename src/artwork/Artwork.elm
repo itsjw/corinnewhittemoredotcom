@@ -70,6 +70,7 @@ view model =
         [ div [ onMouseMove GetScrollPos, toggleScrollDisable model ]
             [ navNavBar "../../images/ecmw_black.png"
             , sectionHeroArtwork
+            , text <| toString model.disableScroll
             , divTabs model
             , divArtworkContent model
             ]

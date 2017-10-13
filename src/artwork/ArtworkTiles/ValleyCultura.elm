@@ -70,7 +70,8 @@ divTileImgMarthasFruitStand =
             pathsValleyCultura
         )
         "Marthas Fruit Stand"
-        "is-169x142"
+        -- "is-169x142"
+        "is-square"
         MarthasFruitStand
 
 
@@ -79,7 +80,8 @@ divTileImgSunsetMinimart =
     divTileImgGenerator
         (unwrapPath "sunsetMinimart" pathsValleyCultura)
         "Sunset Minimart"
-        "is-169x142"
+        -- "is-169x142"
+        "is-square"
         SunsetMinimart
 
 
