@@ -47,10 +47,10 @@ pathsPrivateDisturbance =
           , "../../images/artwork/privateDisturbance/3_mindGames_thumb.png"
           )
         , ( "shiftingPerspective"
-          , "../../images/artwork/privateDisturbance/4_excessiveForce_thumb.png"
+          , "../../images/artwork/privateDisturbance/4_excessiveForce_thumb_2.png"
           )
         , ( "subtlePresence"
-          , "../../images/artwork/privateDisturbance/5_battleField_thumb.png"
+          , "../../images/artwork/privateDisturbance/5_battleField_thumb_2.png"
           )
         , ( "noPrisoners"
           , "../../images/artwork/privateDisturbance/6_noPrisoners_thumb.png"
@@ -83,7 +83,7 @@ pathsImportantPapers : ImagePaths
 pathsImportantPapers =
     Dict.fromList
         [ ( "importantPaper"
-          , "../../images/artwork/importantPapers/importantPaper.jpg"
+          , "../../images/artwork/importantPapers/certified_preview.jpeg"
           )
         ]
 

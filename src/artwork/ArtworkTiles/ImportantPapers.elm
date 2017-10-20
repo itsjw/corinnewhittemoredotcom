@@ -3,9 +3,48 @@ module ImportantPapers exposing (content)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import ImagePaths exposing (pathsImportantPapers)
-import Messages exposing (Msg(ImportantPaper))
+import Messages exposing (Msg(ImportantPaper), divTileImgGenerator)
+import Util exposing (unwrapPath)
 
 
-content : Html msg
+content : Html Msg
 content =
-    div [ id "important-papers" ] []
+    div [] [ sectionImportantPapers ]
+
+
+divTileImgImportantPaper : Html Msg
+divTileImgImportantPaper =
+    divTileImgGenerator
+        (unwrapPath "importantPaper" pathsImportantPapers)
+        "Important Papers"
+        "is-500x275"
+        ImportantPaper
+
+
+dummyTile : Html msg
+dummyTile =
+    div [ class "tile" ] []
+
+
+divTileImportantPaperContainer : Html Msg
+divTileImportantPaperContainer =
+    div [ class "tile is-parent is-vertical" ]
+        [ dummyTile
+        , dummyTile
+        , divTileImgImportantPaper
+        ]
+
+
+divTileImportantPapers : Html Msg
+divTileImportantPapers =
+    div [ class "tile is-ancestor" ]
+        [ dummyTile
+        , divTileImportantPaperContainer
+        , dummyTile
+        ]
+
+
+sectionImportantPapers : Html Msg
+sectionImportantPapers =
+    section [ class "section", style [ ( "zoom", "0.8" ) ] ]
+        [ div [ class "container" ] [ divTileImportantPapers ] ]

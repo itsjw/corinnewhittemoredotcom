@@ -1,5 +1,6 @@
-module NavBar exposing (navNavBar)
+module NavBar exposing (navNavBar, main, Msg, Model)
 
+import Html.Events exposing (onClick)
 import Html exposing (a, li, ul, img, div, nav, span, text, Html, Attribute)
 import Html.Attributes
     exposing
@@ -14,7 +15,45 @@ import Html.Attributes
         )
 
 
--- styles
+main : Program Never Model Msg
+main =
+    Html.program
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
+
+
+type alias Model =
+    { burgerIsActive : Bool }
+
+
+initialModel : Model
+initialModel =
+    { burgerIsActive = False }
+
+
+init : ( Model, Cmd msg )
+init =
+    ( initialModel, Cmd.none )
+
+
+type Msg
+    = Burger
+
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        Burger ->
+            ( { model | burgerIsActive = not model.burgerIsActive }
+            , Cmd.none
+            )
+
+
+
+-- styles --------------------------------------------------------------------
 
 
 styleFontSize : Attribute msg
@@ -25,6 +64,10 @@ styleFontSize =
 stylePaddingRight : Attribute msg
 stylePaddingRight =
     style [ ( "padding-right", "10px" ) ]
+
+
+
+-- content --------------------------------------------------------------------
 
 
 imgLogo : String -> Html msg
@@ -47,21 +90,26 @@ aNavbarItem path =
         [ imgLogo path ]
 
 
-divNavbarBurger : Html msg
-divNavbarBurger =
-    div [ class "navbar-burger burger", attribute "data-target" "navMenubd" ]
+divNavbarBurger : Model -> Html Msg
+divNavbarBurger model =
+    div
+        [ class <| navBarActiveStr model
+        , attribute "data-target"
+            "navMenubd"
+        , onClick Burger
+        ]
         [ span [] []
         , span [] []
         , span [] []
         ]
 
 
-divNavbarBrand : String -> Html msg
-divNavbarBrand path =
-    div [ class "navbar-brand" ] [ aNavbarItem path, divNavbarBurger ]
+divNavbarBrand : Model -> String -> Html Msg
+divNavbarBrand model path =
+    div [ class "navbar-brand" ] [ aNavbarItem path, divNavbarBurger model ]
 
 
-navBreadcrumb : Html msg
+navBreadcrumb : Html Msg
 navBreadcrumb =
     nav [ class "breadcrumb", styleFontSize, stylePaddingRight, attribute "aira-label" "breadcrumbs" ]
         [ ul []
@@ -91,17 +139,40 @@ navBreadcrumb =
         ]
 
 
-divNavbarEnd : Html msg
+divNavbarEnd : Html Msg
 divNavbarEnd =
     div [ class "navbar-end" ]
         [ navBreadcrumb ]
 
 
-divNavbarMenu : Html msg
+divNavbarMenu : Html Msg
 divNavbarMenu =
     div [ id "navMenubd", class "navbar-menu" ] [ divNavbarEnd ]
 
 
-navNavBar : String -> Html msg
-navNavBar path =
-    nav [ class "navbar" ] [ divNavbarBrand path, divNavbarMenu ]
+navNavBar : Model -> String -> Html Msg
+navNavBar model path =
+    nav [ class "navbar" ] [ divNavbarBrand model path, divNavbarMenu ]
+
+
+view : Model -> Html Msg
+view model =
+    div [ class "main-container" ]
+        [ navNavBar model "../../../images/ecmw_black.png" ]
+
+
+
+-- view validation -------------------------------------------------------------
+
+
+navBarActiveStr : Model -> String
+navBarActiveStr model =
+    if model.burgerIsActive then
+        "navbar-burger burger is-active"
+    else
+        "navbar-burger burger"
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Sub.none

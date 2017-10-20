@@ -45,16 +45,7 @@ attributeRightTilePadding =
 divTileBottomRight : Html Msg
 divTileBottomRight =
     div [ class "tile is-parent" ]
-        [ -- div [ class "tile is-child" ]
-          -- [ figure [ class "image is-173x137" ]
-          -- [ img
-          -- [ src <| unwrapPath "mindGames" pathsPrivateDisturbance
-          -- , alt "Mind Games"
-          -- ]
-          -- []
-          -- ]
-          -- ]
-          divTileImgGenerator
+        [ divTileImgGenerator
             (unwrapPath "mindGames" pathsPrivateDisturbance)
             "Mind Games"
             "is-173x137"
@@ -64,18 +55,6 @@ divTileBottomRight =
             "Excessive Force"
             "is-173x137"
             ShiftingPerspective
-
-        -- div [ class "tile is-child " ]
-        -- [ figure [ class "image is-173x137" ]
-        -- [ img
-        -- [ src <| unwrapPath
-        -- "shiftingPerspective"
-        -- pathsPrivateDisturbance
-        -- , alt "Excessive Force"
-        -- ]
-        -- []
-        -- ]
-        -- ]
         ]
 
 
@@ -87,31 +66,11 @@ divTileWideImages =
             "Excessive Force"
             "is-16by9"
             ExcessiveForce
-
-        -- div [ class "tile is-child " ]
-        -- [ figure [ class "image is-16by9" ]
-        -- [ img
-        -- [ src <| unwrapPath "excessiveForce" pathsPrivateDisturbance
-        -- , alt "Excessive Force"
-        -- ]
-        -- []
-        -- ]
-        -- ]
         , divTileImgGenerator
             (unwrapPath "battleField" pathsPrivateDisturbance)
             "Battle Field"
             "is-16by9"
             BattleField
-
-        -- div [ class "tile is-child " ]
-        -- [ figure [ class "image is-16by9" ]
-        -- [ img
-        -- [ src <| unwrapPath "battleField" pathsPrivateDisturbance
-        -- , alt "Battle Field"
-        -- ]
-        -- []
-        -- ]
-        -- ]
         ]
 
 
@@ -129,31 +88,11 @@ divTileBottomLeft =
             "Subtle Presence"
             "is-173x137"
             SubtlePresence
-
-        -- div [ class "tile is-child" ]
-        -- [ figure [ class "image is-173x137" ]
-        -- [ img
-        -- [ src <| unwrapPath "subtlePresence" pathsPrivateDisturbance
-        -- , alt "Subtle Presence"
-        -- ]
-        -- []
-        -- ]
-        -- ]
         , divTileImgGenerator
             (unwrapPath "noPrisoners" pathsPrivateDisturbance)
             "No Prisoners"
             "is-173x137"
             NoPrisoners
-
-        -- div [ class "tile is-child" ]
-        -- [ figure [ class "image is-173x137" ]
-        -- [ img
-        -- [ src <| unwrapPath "noPrisoners" pathsPrivateDisturbance
-        -- , alt "No Prisoners"
-        -- ]
-        -- []
-        -- ]
-        -- ]
         ]
 
 

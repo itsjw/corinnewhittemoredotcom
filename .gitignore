@@ -3,4 +3,5 @@ images
 tests
 *.json
 *.js
+.sass-cache
 tags

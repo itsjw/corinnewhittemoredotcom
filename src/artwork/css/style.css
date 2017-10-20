@@ -4201,8 +4201,8 @@ label.panel-block {
   .tabs li {
     display: block; }
     .tabs li.is-active a {
-      border-bottom-color: #ff91af;
-      color: #ff91af; }
+      border-bottom-color: #00d1b2;
+      color: #00d1b2; }
   .tabs ul {
     align-items: center;
     border-bottom-color: #dbdbdb;

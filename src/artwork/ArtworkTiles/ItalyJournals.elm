@@ -4,61 +4,92 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import ImagePaths exposing (pathsTheItalyJournal)
 import Util exposing (ImagePaths, unwrapPath)
-import Messages exposing (Msg(Bed, Bush, Period, Spent, Test))
+import Messages
+    exposing
+        ( Msg(Bed, Bush, Period, Spent, Test)
+        , divTileImgGenerator
+        )
 
 
-content : Html msg
+content : Html Msg
 content =
     div [ id "italy-journals" ] [ sectionItalyJournals ]
 
 
-figureImgBed : Html msg
-figureImgBed =
-    figure [ class "image is-401x502" ]
-        [ img [ src <| unwrapPath "bed" pathsTheItalyJournal, alt "Bed" ] [] ]
+divTileImgBed : Html Msg
+divTileImgBed =
+    divTileImgGenerator
+        (unwrapPath
+            "bed"
+            pathsTheItalyJournal
+        )
+        "Bed"
+        "is-401x502"
+        Bed
 
 
-figureImgBush : Html msg
-figureImgBush =
-    figure [ class "image is-401x502" ]
-        [ img [ src <| unwrapPath "bush" pathsTheItalyJournal, alt "Bush" ] [] ]
+divTileImgBush : Html Msg
+divTileImgBush =
+    divTileImgGenerator
+        (unwrapPath "bush" pathsTheItalyJournal)
+        "Bush"
+        "is-401x502"
+        Bush
 
 
-figureImgPeriod : Html msg
-figureImgPeriod =
-    figure [ class "image is-401x502" ]
-        [ img [ src <| unwrapPath "period" pathsTheItalyJournal, alt "Period" ] [] ]
+divTileImgPeriod : Html Msg
+divTileImgPeriod =
+    divTileImgGenerator
+        (unwrapPath "period" pathsTheItalyJournal)
+        "Period"
+        "is-401x502"
+        Period
 
 
-figureImgSpent : Html msg
-figureImgSpent =
-    figure [ class "image is-401x502" ]
-        [ img [ src <| unwrapPath "spent" pathsTheItalyJournal, alt "Spent" ] [] ]
+divTileImgSpent : Html Msg
+divTileImgSpent =
+    divTileImgGenerator
+        (unwrapPath "spent" pathsTheItalyJournal)
+        "Spent"
+        "is-401x502"
+        Spent
 
 
-figureImgTest : Html msg
-figureImgTest =
-    figure [ class "image is-401x502" ]
-        [ img [ src <| unwrapPath "test" pathsTheItalyJournal, alt "Test" ] [] ]
+divTileImgTest : Html Msg
+divTileImgTest =
+    divTileImgGenerator
+        (unwrapPath "test" pathsTheItalyJournal)
+        "Test"
+        "is-401x502"
+        Test
 
 
-divTileIs12 : Html msg
-divTileIs12 =
-    div [ class "tile is-12 is-parent" ]
-        [ div [ class "tile is-child box" ] [ figureImgBed ]
-        , div [ class "tile is-child box" ] [ figureImgBush ]
-        , div [ class "tile is-child box" ] [ figureImgPeriod ]
-        , div [ class "tile is-child box" ] [ figureImgSpent ]
-        , div [ class "tile is-child box" ] [ figureImgTest ]
-        ]
+divLeftTileTop : Html Msg
+divLeftTileTop =
+    div [ class "tile" ] [ divTileImgSpent, divTileImgPeriod ]
 
 
-divTileItalyJournals : Html msg
+divLeftTileBottom : Html Msg
+divLeftTileBottom =
+    div [ class "tile" ] [ divTileImgTest, divTileImgBed ]
+
+
+divLeftTile : Html Msg
+divLeftTile =
+    div [ class "tile is-parent is-vertical" ] [ divLeftTileTop, divLeftTileBottom ]
+
+
+divRightTile : Html Msg
+divRightTile =
+    div [ class "tile is-parent is-vertical" ] [ divTileImgBush ]
+
+
+divTileItalyJournals : Html Msg
 divTileItalyJournals =
-    div [ class "tile is-ancestor" ] [ divTileIs12 ]
+    div [ class "tile is-ancestor" ] [ divLeftTile, divRightTile ]
 
 
-sectionItalyJournals : Html msg
+sectionItalyJournals : Html Msg
 sectionItalyJournals =
     section [ class "section", style [ ( "zoom", "0.8" ) ] ]
         [ div [ class "container" ]
