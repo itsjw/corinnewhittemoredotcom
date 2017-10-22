@@ -277,6 +277,11 @@ update msg model =
             , Task.attempt (always NoOp) (Dom.Scroll.toY "bb" model.windowPos)
             )
 
+        Burger ->
+            ( { model | isBurgerActive = not model.isBurgerActive }
+            , Cmd.none
+            )
+
 
 tryGettingY : Result Error Float -> Msg
 tryGettingY r =

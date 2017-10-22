@@ -68,7 +68,7 @@ view : Model -> Html Msg
 view model =
     div []
         [ div [ onMouseMove GetScrollPos, toggleScrollDisable model ]
-            [ navNavBar "../../images/ecmw_black.png"
+            [ navNavBar model.isBurgerActive Burger
             , sectionHeroArtwork
             , divTabs model
             , divArtworkContent model

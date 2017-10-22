@@ -21,6 +21,7 @@ type alias Model =
     , disableScroll : Bool
     , windowPos : Float
     , errors : String
+    , isBurgerActive : Bool
     }
 
 
@@ -88,6 +89,7 @@ initialModel =
     , disableScroll = False
     , windowPos = 0 -- used primarily for modal
     , errors = ""
+    , isBurgerActive = False
     }
 
 

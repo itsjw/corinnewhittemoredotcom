@@ -38,6 +38,7 @@ type Msg
     | ErrOnGetScroll String
     | NoOp
     | KeyMsg Keyboard.KeyCode
+    | Burger
 
 
 

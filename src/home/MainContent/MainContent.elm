@@ -54,9 +54,9 @@ divTileCopy =
 figureImagePaperdoll : Html msg
 figureImagePaperdoll =
     figure
-        [ class "image is-210x373" ]
+        [ class "image is-300x300" ]
         [ img
-            [ src "./images/paperDoll3_2_copy.png"
+            [ src "../../images/turnupHead_2.gif"
             ]
             []
         ]
