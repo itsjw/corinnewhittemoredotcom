@@ -48,7 +48,7 @@ aNavbarItem path =
         [ imgLogo path ]
 
 
-divNavbarBurger : Bool -> a -> Html a
+divNavbarBurger : Bool -> msg -> Html msg
 divNavbarBurger status msg =
     div
         [ class <| isBurgerActiveCrossStr status
@@ -61,7 +61,7 @@ divNavbarBurger status msg =
         ]
 
 
-divNavbarBrand : Bool -> a -> String -> Html a
+divNavbarBrand : Bool -> msg -> String -> Html msg
 divNavbarBrand status msg path =
     div [ class "navbar-brand" ] [ aNavbarItem path, divNavbarBurger status msg ]
 
@@ -107,7 +107,7 @@ divNavbarMenu status =
     div [ id "navMenubd", class <| isBurgerActiveMenuStr status ] [ divNavbarEnd ]
 
 
-navNavBar : Bool -> a -> Html a
+navNavBar : Bool -> msg -> Html msg
 navNavBar status msg =
     nav [ class "navbar" ]
         [ divNavbarBrand
