@@ -133,21 +133,30 @@ update msg model =
 
         -- enable esc to close modal:
         KeyMsg keyCode ->
-            {--( { model
-              -     | activeArtwork =
-              -         if keyCode == 27 && model.disableScroll then
-              -             deactivateModal
-              -         else
-              -             model.activeArtwork
-              -     , disableScroll =
-              -         if keyCode == 27 && model.disableScroll then
-              -             False
-              -         else
-              -             model.disableScroll
-              -   }
-              - , Task.attempt (always NoOp) (Dom.Scroll.toY "bb" model.windowPos)
-              - ) --}
-            ( model, Task.attempt (always NoOp) (Dom.Scroll.toY "bb" model.windowPos) )
+            ( { model
+                | modalIsActive =
+                    if keyCode == 27 && model.disableScroll then
+                        False
+                    else
+                        True
+                , disableScroll =
+                    if keyCode == 27 && model.disableScroll then
+                        False
+                    else
+                        model.disableScroll
+                , activeArtwork =
+                    if keyCode == 27 && model.disableScroll then
+                        ""
+                    else
+                        model.activeArtwork
+                , modalDisplay =
+                    if keyCode == 27 && model.disableScroll then
+                        Nothing
+                    else
+                        model.modalDisplay
+              }
+            , Task.attempt (always NoOp) (Dom.Scroll.toY "bb" model.windowPos)
+            )
 
         Burger ->
             ( { model | isBurgerActive = not model.isBurgerActive }
