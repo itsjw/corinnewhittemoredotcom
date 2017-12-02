@@ -8,37 +8,17 @@ import Util exposing (..)
 
 
 type Msg
-    = ValleyCultura -- Tabs Messages:
-    | PrivateDisturbance
-    | TheItalyJournals
-    | ImportantPapers
-    | MariaMarilyn -- Image Messages: ValleyCultura
-    | HablaTex
-    | DigitalLandscape
-    | RodriguezFlowerShop
-    | Crossing
-    | SunsetMinimart
-    | MarthasFruitStand
-    | MarthasFruitStandTwo
-    | ExcessiveForce -- PrivateDisturbance:
-    | BattleField
-    | MindGames
-    | ShiftingPerspective
-    | SubtlePresence
-    | NoPrisoners
-    | Bed -- The Italy Journals:
-    | Bush
-    | Period
-    | Spent
-    | Test
-    | ImportantPaper -- Important Papers
+    = Tab Series
+    | ImageClick Series ArtworkTitle
     | CloseModal -- Messages used for controlling modal windows:
     | GetScrollPos
     | NewPos Float
     | ErrOnGetScroll String
     | NoOp
     | KeyMsg Keyboard.KeyCode
-    | Burger
+    | ImgNext
+    | ImgPrevious
+    | Burger -- Burger in navbar has been clicked
 
 
 

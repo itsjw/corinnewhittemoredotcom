@@ -56,7 +56,7 @@ figureImagePaperdoll =
     figure
         [ class "image is-300x300" ]
         [ img
-            [ src "../../images/turnupHead_2.gif"
+            [ src "../../images/turnupHead.gif"
             ]
             []
         ]

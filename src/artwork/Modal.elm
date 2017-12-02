@@ -1,12 +1,10 @@
 module Modal exposing (divModal)
 
-import Dict exposing (values)
-import Html exposing (Attribute, section, figure, Html, div, img, button, a, text, em)
+import Html exposing (Attribute, section, figure, Html, div, img, button, span, a, text, em, i)
 import Html.Attributes exposing (class, src, alt, attribute, style)
 import Html.Events exposing (onClick)
 import Model exposing (..)
-import Messages exposing (Msg(CloseModal))
-import ImagePaths exposing (allPathsHighRes)
+import Messages exposing (Msg(CloseModal, ImgNext, ImgPrevious))
 import Util exposing (BulmaDimension, ImagePath)
 
 
@@ -41,8 +39,7 @@ divTileImageContainer path bulmaAttrsMobile bulmaAttrsDesktop =
 divTileAncestor : ImagePath -> BulmaDimension -> BulmaDimension -> Html Msg
 divTileAncestor path bulmaAttrsMobile bulmaAttrsDesktop =
     div [ class "tile is-ancestor" ]
-        [ divTileImageContainer path bulmaAttrsMobile bulmaAttrsDesktop
-        ]
+        [ divTileImageContainer path bulmaAttrsMobile bulmaAttrsDesktop ]
 
 
 divModalContent : ImagePath -> BulmaDimension -> BulmaDimension -> Html Msg
@@ -51,8 +48,7 @@ divModalContent path bulmaAttrsMobile bulmaAttrsDesktop =
         [ class "modal-content"
         , style [ ( "overflow", "visible" ) ]
         ]
-        [ divTileAncestor path bulmaAttrsMobile bulmaAttrsDesktop
-        ]
+        [ divTileAncestor path bulmaAttrsMobile bulmaAttrsDesktop ]
 
 
 divModalBackground : ImagePath -> BulmaDimension -> BulmaDimension -> Html Msg
@@ -91,62 +87,62 @@ attributeDisableScroll =
         ]
 
 
+rightChevronStyle : Attribute msg
+rightChevronStyle =
+    style
+        [ ( "font-size", "72px" )
+        , ( "position", "absolute" )
+        , ( "top", "0" )
+        , ( "bottom", "0" )
+        , ( "left", "100px" )
+        , ( "margin", "auto" )
+        , ( "height", "54px" )
+        ]
+
+
+leftChevronStyle : Attribute msg
+leftChevronStyle =
+    style
+        [ ( "font-size", "72px" )
+        , ( "position", "absolute" )
+        , ( "top", "0" )
+        , ( "bottom", "0" )
+        , ( "right", "100px" )
+        , ( "margin", "auto" )
+        , ( "height", "54px" )
+        ]
+
+
 divModal_ : Model -> ImagePath -> BulmaDimension -> BulmaDimension -> Html Msg
 divModal_ model path bulmaAttrsMobile bulmaAttrsDesktop =
     div
         [ class <| "modal " ++ (isModalActiveString model) ]
         [ divModalBackground path bulmaAttrsMobile bulmaAttrsDesktop
         , buttonCloseModal
+        , span [ class "icon", onClick ImgPrevious, leftChevronStyle ]
+            [ i [ class "fa fa-chevron-circle-right" ] [] ]
+        , span [ class "icon", onClick ImgNext, rightChevronStyle ]
+            [ i [ class "fa fa-chevron-circle-left" ] [] ]
         ]
 
 
 divModal : Model -> BulmaDimension -> BulmaDimension -> Html Msg
 divModal model bulmaAttrsMobile bulmaAttrsDesktop =
     let
-        -- unwrapping in an inelegant way
-        -- i am open to suggestions...?
-        theTrueVine : Dict.Dict String Bool
-        theTrueVine =
-            Dict.filter (\_ v -> v == True) model.activeArtwork
+        imgPath =
+            case model.modalDisplay of
+                Just modal ->
+                    modal.currentPath
 
-        trueVineAsList : List ( String, Bool )
-        trueVineAsList =
-            Dict.toList theTrueVine
-
-        key : String
-        key =
-            case List.head trueVineAsList of
                 Nothing ->
                     ""
-
-                Just val ->
-                    Tuple.first val
-
-        imagePath : String
-        imagePath =
-            case Dict.get key allPathsHighRes of
-                Nothing ->
-                    ""
-
-                Just path ->
-                    path
     in
-        divModal_ model imagePath bulmaAttrsMobile bulmaAttrsDesktop
-
-
-isModalActive : Dict.Dict String Bool -> Bool
-isModalActive d =
-    List.any (\v -> v == True) <| Dict.values d
-
-
-
--- String which activates modal. See bulma
--- docs on Modal for details.
+        divModal_ model imgPath bulmaAttrsMobile bulmaAttrsDesktop
 
 
 isModalActiveString : Model -> String
 isModalActiveString model =
-    if isModalActive model.activeArtwork then
+    if model.modalIsActive then
         "is-active"
     else
         ""

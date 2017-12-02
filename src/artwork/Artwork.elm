@@ -1,4 +1,4 @@
-module Artwork exposing (..)
+module Artwork exposing (main)
 
 import Html exposing (Attribute, section, Html, text, div, ul, li, a)
 import Html.Attributes exposing (class, style, href)
@@ -7,16 +7,30 @@ import Hero exposing (sectionHeroArtwork)
 import Json.Decode as Json
 import Keyboard
 import ItalyJournals exposing (content)
-import ImagePaths exposing (artworkDimensionsDesktop, artworkDimensionsMobile)
+import ImagePaths
+    exposing
+        ( artworkDimensionsDesktop
+        , artworkDimensionsMobile
+        , artworkNameArray
+        )
 import ImportantPapers exposing (content)
-import Messages exposing (..)
-import Model exposing (..)
-import Modal exposing (..)
+import Modal exposing (divModal)
 import NavBar exposing (navNavBar)
 import PrivateDisturbance exposing (content)
-import Update exposing (..)
-import Util exposing (unwrapBulmaDimension)
+import Update exposing (update)
+import Util
+    exposing
+        ( unwrapBulmaDimension
+        , Series
+            ( ValleyCultura
+            , PrivateDisturbance
+            , TheItalyJournals
+            , ImportantPapers
+            )
+        )
 import ValleyCultura exposing (content)
+import Messages exposing (Msg(GetScrollPos, Burger, KeyMsg, Tab))
+import Model exposing (initialModel, Model, toggleScrollDisable)
 
 
 main : Program Never Model Msg
@@ -76,11 +90,23 @@ view model =
         , divModal
             model
             (unwrapBulmaDimension
-                (selectedArtwork model)
+                (case model.modalDisplay of
+                    Just modal ->
+                        modal.currentTitle
+
+                    Nothing ->
+                        ""
+                )
                 artworkDimensionsMobile
             )
             (unwrapBulmaDimension
-                (selectedArtwork model)
+                (case model.modalDisplay of
+                    Just modal ->
+                        modal.currentTitle
+
+                    Nothing ->
+                        ""
+                )
                 artworkDimensionsDesktop
             )
         ]
@@ -131,19 +157,19 @@ divTabs model =
             ]
             [ ul []
                 [ li [ class <| .valleyCultura <| isActiveString model ]
-                    [ a [ href "#", onClick <| ValleyCultura ]
+                    [ a [ href "#", onClick <| Tab ValleyCultura ]
                         [ text "Valley Cultura" ]
                     ]
                 , li [ class <| .privateDisturbance <| isActiveString model ]
-                    [ a [ href "#", onClick <| PrivateDisturbance ]
+                    [ a [ href "#", onClick <| Tab PrivateDisturbance ]
                         [ text "Private Disturbance" ]
                     ]
                 , li [ class <| .theItalyJournals <| isActiveString model ]
-                    [ a [ href "#", onClick <| TheItalyJournals ]
+                    [ a [ href "#", onClick <| Tab TheItalyJournals ]
                         [ text "The Italy Journals" ]
                     ]
                 , li [ class <| .importantPapers <| isActiveString model ]
-                    [ a [ href "#", onClick <| ImportantPapers ]
+                    [ a [ href "#", onClick <| Tab ImportantPapers ]
                         [ text "Important Papers" ]
                     ]
                 ]

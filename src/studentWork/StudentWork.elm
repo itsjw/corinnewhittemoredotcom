@@ -4,6 +4,8 @@ import Html exposing (Attribute, section, Html, text, div, ul, li, a)
 import Html.Attributes exposing (class, style, href)
 import Html.Events exposing (onClick)
 import Hero exposing (sectionHeroStudentWork)
+import Messages exposing (Msg(GraphicDesignOne, DesignOne, IndependentStudy))
+import Model exposing (Model, init)
 import NavBar exposing (navNavBar)
 
 
@@ -35,31 +37,7 @@ attributePaddingLeftRight =
 
 
 
--- init ------------------------------------------------------------------------
-
-
-type alias Model =
-    String
-
-
-initialModel : Model
-initialModel =
-    "IndependentStudy"
-
-
-init : ( Model, Cmd msg )
-init =
-    ( initialModel, Cmd.none )
-
-
-
 -- update ----------------------------------------------------------------------
-
-
-type Msg
-    = GraphicDesignOne
-    | DesignOne
-    | IndependentStudy
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )

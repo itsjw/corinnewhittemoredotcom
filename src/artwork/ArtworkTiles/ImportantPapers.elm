@@ -3,8 +3,8 @@ module ImportantPapers exposing (content)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import ImagePaths exposing (pathsImportantPapers)
-import Messages exposing (Msg(ImportantPaper), divTileImgGenerator)
-import Util exposing (unwrapPath)
+import Messages exposing (Msg(ImageClick), divTileImgGenerator)
+import Util exposing (unwrapPath, Series(ImportantPapers))
 
 
 content : Html Msg
@@ -17,8 +17,8 @@ divTileImgImportantPaper =
     divTileImgGenerator
         (unwrapPath "importantPaper" pathsImportantPapers)
         "Important Papers"
-        "is-500x275"
-        ImportantPaper
+        "is-1024x563"
+        (ImageClick ImportantPapers "importantPaper")
 
 
 dummyTile : Html msg
@@ -38,9 +38,7 @@ divTileImportantPaperContainer =
 divTileImportantPapers : Html Msg
 divTileImportantPapers =
     div [ class "tile is-ancestor" ]
-        [ dummyTile
-        , divTileImportantPaperContainer
-        , dummyTile
+        [ divTileImportantPaperContainer
         ]
 
 

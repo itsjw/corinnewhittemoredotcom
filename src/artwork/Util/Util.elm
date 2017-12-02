@@ -3,6 +3,21 @@ module Util exposing (..)
 import Dict exposing (Dict)
 
 
+-- Used to refer to respective artwork series
+
+
+type Series
+    = ValleyCultura
+    | PrivateDisturbance
+    | TheItalyJournals
+    | ImportantPapers
+
+
+type alias ArtworkTitle =
+    String
+
+
+
 -- This is just an alternative
 -- String for an image in an href.
 
@@ -35,37 +50,6 @@ type alias HtmlAlt =
 
 type alias BulmaDimension =
     String
-
-
-
--- artwork strings that identify a piece of
--- work within various sets
--- meant to zip into dictionary with other lists
-
-
-artworkStrings : List String
-artworkStrings =
-    [ "mariaMarilyn" -- Valley Cultura
-    , "hablaTex"
-    , "digitalLandscape"
-    , "rodriguezFlowerShop"
-    , "crossing"
-    , "sunsetMinimart"
-    , "marthasFruitStand"
-    , "marthasFruitStandTwo"
-    , "excessiveForce" -- Private Disturbance
-    , "battleField"
-    , "mindGames"
-    , "shiftingPerspective"
-    , "subtlePresence"
-    , "noPrisoners"
-    , "bed" -- The Italy Journals
-    , "bush"
-    , "period"
-    , "spent"
-    , "test"
-    , "importantPaper" -- Important Papers
-    ]
 
 
 

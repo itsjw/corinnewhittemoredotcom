@@ -1,249 +1,121 @@
 module Update exposing (..)
 
+import Dict
 import Messages exposing (..)
 import Model exposing (..)
 import Dom.Scroll
 import Dom exposing (Error)
 import Task exposing (Task)
+import Util exposing (Series(..))
+import ImagePaths
+    exposing
+        ( ArtworkModal
+        , getArtworkIndex
+        , getTitles
+        , updateModal
+        , modalValleyCultura
+        , modalPrivateDisturbance
+        , modalItalyJournals
+        , modalImportantPapers
+        , modalPrevImg
+        , modalNextImg
+        )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         -- Tabs: -----------------------
-        ValleyCultura ->
-            ( { model | tab = "ValleyCultura" }
-            , Cmd.none
-            )
+        Tab series ->
+            let
+                activeTabString =
+                    case series of
+                        ValleyCultura ->
+                            "ValleyCultura"
 
-        PrivateDisturbance ->
-            ( { model | tab = "PrivateDisturbance" }
-            , Cmd.none
-            )
+                        PrivateDisturbance ->
+                            "PrivateDisturbance"
 
-        TheItalyJournals ->
-            ( { model | tab = "TheItalyJournals" }
-            , Cmd.none
-            )
+                        TheItalyJournals ->
+                            "TheItalyJournals"
 
-        ImportantPapers ->
-            ( { model | tab = "ImportantPapers" }
-            , Cmd.none
-            )
+                        ImportantPapers ->
+                            "ImportantPapers"
+            in
+                ( { model | tab = activeTabString }
+                , Cmd.none
+                )
 
-        -- Images: ValleyCultura -------
-        MariaMarilyn ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "mariaMarilyn"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
+        ImageClick series title ->
+            let
+                update =
+                    case series of
+                        ValleyCultura ->
+                            let
+                                modelUpdate =
+                                    activateModal model.modalValleyCultura title model
+                            in
+                                { modelUpdate
+                                    | modalValleyCultura =
+                                        ImagePaths.updateModal title
+                                            model.modalValleyCultura
+                                }
 
-        HablaTex ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "hablaTex"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
+                        PrivateDisturbance ->
+                            let
+                                modelUpdate =
+                                    activateModal model.modalPrivateDisturbance title model
+                            in
+                                { modelUpdate
+                                    | modalPrivateDisturbance =
+                                        ImagePaths.updateModal title
+                                            model.modalPrivateDisturbance
+                                }
 
-        DigitalLandscape ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "digitalLandscape"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
+                        TheItalyJournals ->
+                            let
+                                modelUpdate =
+                                    activateModal model.modalTheItalyJournals title model
+                            in
+                                { modelUpdate
+                                    | modalTheItalyJournals =
+                                        ImagePaths.updateModal title
+                                            model.modalTheItalyJournals
+                                }
 
-        RodriguezFlowerShop ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "rodriguezFlowerShop"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
-
-        Crossing ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "crossing"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
-
-        SunsetMinimart ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "sunsetMinimart"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
-
-        MarthasFruitStand ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "marthasFruitStand"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
-
-        MarthasFruitStandTwo ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "marthasFruitStandTwo"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
-
-        -- Images: PrivateDisturbance --
-        ExcessiveForce ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "excessiveForce"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
-
-        BattleField ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "battleField"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
-
-        MindGames ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "mindGames"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
-
-        ShiftingPerspective ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "shiftingPerspective"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
-
-        SubtlePresence ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "subtlePresence"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
-
-        NoPrisoners ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "noPrisoners"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
-
-        Bed ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "bed"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
-
-        Bush ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "bush"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
-
-        Period ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "period"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
-
-        Spent ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "spent"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
-
-        Test ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "test"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
-
-        ImportantPaper ->
-            ( { model
-                | activeArtwork =
-                    invertActiveArtwork model.activeArtwork
-                        "importantPaper"
-                , disableScroll = True
-              }
-            , Cmd.none
-            )
+                        ImportantPapers ->
+                            let
+                                modelUpdate =
+                                    activateModal model.modalImportantPapers title model
+                            in
+                                { modelUpdate
+                                    | modalImportantPapers =
+                                        ImagePaths.updateModal title
+                                            model.modalImportantPapers
+                                }
+            in
+                ( { update
+                    | disableScroll = True
+                    , modalIsActive = True
+                  }
+                , Cmd.none
+                )
 
         CloseModal ->
             ( { model
-                | activeArtwork = deactivateModal
+                | activeArtwork = ""
                 , disableScroll = False
+
+                -- , imageIndex = -1
+                , modalDisplay = Nothing
+                , modalIsActive = False
               }
             , Task.attempt (always NoOp) (Dom.Scroll.toY "bb" model.windowPos)
             )
 
         GetScrollPos ->
             ( model
-            , Task.attempt tryGettingY (Dom.Scroll.y "bb")
+            , Task.attempt attemptGetY (Dom.Scroll.y "bb")
             )
 
         NewPos p ->
@@ -257,37 +129,121 @@ update msg model =
             )
 
         NoOp ->
-            ( model
-            , Cmd.none
-            )
+            ( model, Cmd.none )
 
+        -- enable esc to close modal:
         KeyMsg keyCode ->
-            ( { model
-                | activeArtwork =
-                    if keyCode == 27 && model.disableScroll then
-                        deactivateModal
-                    else
-                        model.activeArtwork
-                , disableScroll =
-                    if keyCode == 27 && model.disableScroll then
-                        False
-                    else
-                        model.disableScroll
-              }
-            , Task.attempt (always NoOp) (Dom.Scroll.toY "bb" model.windowPos)
-            )
+            {--( { model
+              -     | activeArtwork =
+              -         if keyCode == 27 && model.disableScroll then
+              -             deactivateModal
+              -         else
+              -             model.activeArtwork
+              -     , disableScroll =
+              -         if keyCode == 27 && model.disableScroll then
+              -             False
+              -         else
+              -             model.disableScroll
+              -   }
+              - , Task.attempt (always NoOp) (Dom.Scroll.toY "bb" model.windowPos)
+              - ) --}
+            ( model, Task.attempt (always NoOp) (Dom.Scroll.toY "bb" model.windowPos) )
 
         Burger ->
             ( { model | isBurgerActive = not model.isBurgerActive }
             , Cmd.none
             )
 
+        ImgNext ->
+            ( { model
+                | modalDisplay =
+                    case model.modalDisplay of
+                        Just modal ->
+                            Just (modalNextImg modal)
 
-tryGettingY : Result Error Float -> Msg
-tryGettingY r =
+                        Nothing ->
+                            Nothing
+                , activeArtwork =
+                    case model.modalDisplay of
+                        Just modal ->
+                            modal.currentPath
+
+                        Nothing ->
+                            ""
+              }
+            , Cmd.none
+            )
+
+        ImgPrevious ->
+            ( { model
+                | modalDisplay =
+                    case model.modalDisplay of
+                        Just modal ->
+                            Just (modalPrevImg modal)
+
+                        Nothing ->
+                            Nothing
+                , activeArtwork =
+                    case model.modalDisplay of
+                        Just modal ->
+                            modal.currentPath
+
+                        Nothing ->
+                            ""
+              }
+            , Cmd.none
+            )
+
+
+attemptGetY : Result Error Float -> Msg
+attemptGetY r =
     case r of
         Ok val ->
             NewPos val
 
         Err val ->
             ErrOnGetScroll <| toString val
+
+
+activateModal : ArtworkModal -> String -> Model -> Model
+activateModal modal title model =
+    { model
+        | activeArtwork =
+            case
+                Dict.get title
+                    modal.titlesToPaths
+            of
+                Just path ->
+                    path
+
+                Nothing ->
+                    "notfound.png"
+
+        {--, modalValleyCultura =
+          -     ImagePaths.updateModal title model.modalValleyCultura --}
+        , modalDisplay =
+            Just
+                { modal
+                    | currentTitle = title
+                    , currentPath =
+                        case
+                            Dict.get title
+                                modal.titlesToPaths
+                        of
+                            Just path ->
+                                path
+
+                            Nothing ->
+                                "notfound.png"
+                    , currentIndex =
+                        case
+                            Dict.get title
+                                modal.titlesToIndex
+                        of
+                            Just index ->
+                                index
+
+                            Nothing ->
+                                -1
+                }
+    }

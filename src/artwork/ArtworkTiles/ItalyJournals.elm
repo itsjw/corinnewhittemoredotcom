@@ -3,12 +3,8 @@ module ItalyJournals exposing (content)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import ImagePaths exposing (pathsTheItalyJournal)
-import Util exposing (ImagePaths, unwrapPath)
-import Messages
-    exposing
-        ( Msg(Bed, Bush, Period, Spent, Test)
-        , divTileImgGenerator
-        )
+import Util exposing (ImagePaths, unwrapPath, Series(TheItalyJournals))
+import Messages exposing (Msg(ImageClick), divTileImgGenerator)
 
 
 content : Html Msg
@@ -25,7 +21,7 @@ divTileImgBed =
         )
         "Bed"
         "is-401x502"
-        Bed
+        (ImageClick TheItalyJournals "bed")
 
 
 divTileImgBush : Html Msg
@@ -34,7 +30,7 @@ divTileImgBush =
         (unwrapPath "bush" pathsTheItalyJournal)
         "Bush"
         "is-401x502"
-        Bush
+        (ImageClick TheItalyJournals "bush")
 
 
 divTileImgPeriod : Html Msg
@@ -43,7 +39,7 @@ divTileImgPeriod =
         (unwrapPath "period" pathsTheItalyJournal)
         "Period"
         "is-401x502"
-        Period
+        (ImageClick TheItalyJournals "period")
 
 
 divTileImgSpent : Html Msg
@@ -52,7 +48,7 @@ divTileImgSpent =
         (unwrapPath "spent" pathsTheItalyJournal)
         "Spent"
         "is-401x502"
-        Spent
+        (ImageClick TheItalyJournals "spent")
 
 
 divTileImgTest : Html Msg
@@ -61,7 +57,7 @@ divTileImgTest =
         (unwrapPath "test" pathsTheItalyJournal)
         "Test"
         "is-401x502"
-        Test
+        (ImageClick TheItalyJournals "test")
 
 
 divLeftTileTop : Html Msg

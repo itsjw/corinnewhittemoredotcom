@@ -4,19 +4,8 @@ import Html exposing (Attribute, section, figure, text, Html, div, img, p)
 import Html.Attributes exposing (class, style, src, alt, id)
 import ArtworkCopy exposing (privateDisturbanceArtistStatement)
 import ImagePaths exposing (pathsPrivateDisturbance)
-import Util exposing (ImagePaths, ImagePath, unwrapPath)
-import Messages
-    exposing
-        ( Msg
-            ( ExcessiveForce
-            , BattleField
-            , MindGames
-            , ShiftingPerspective
-            , SubtlePresence
-            , NoPrisoners
-            )
-        , divTileImgGenerator
-        )
+import Util exposing (ImagePaths, ImagePath, unwrapPath, Series(PrivateDisturbance))
+import Messages exposing (divTileImgGenerator, Msg(ImageClick))
 
 
 content : Html Msg
@@ -49,12 +38,12 @@ divTileBottomRight =
             (unwrapPath "mindGames" pathsPrivateDisturbance)
             "Mind Games"
             "is-173x137"
-            MindGames
+            (ImageClick PrivateDisturbance "mindGames")
         , divTileImgGenerator
             (unwrapPath "shiftingPerspective" pathsPrivateDisturbance)
             "Excessive Force"
             "is-173x137"
-            ShiftingPerspective
+            (ImageClick PrivateDisturbance "shiftingPerspective")
         ]
 
 
@@ -65,12 +54,12 @@ divTileWideImages =
             (unwrapPath "excessiveForce" pathsPrivateDisturbance)
             "Excessive Force"
             "is-16by9"
-            ExcessiveForce
+            (ImageClick PrivateDisturbance "excessiveForce")
         , divTileImgGenerator
             (unwrapPath "battleField" pathsPrivateDisturbance)
             "Battle Field"
             "is-16by9"
-            BattleField
+            (ImageClick PrivateDisturbance "battleField")
         ]
 
 
@@ -87,12 +76,12 @@ divTileBottomLeft =
             (unwrapPath "subtlePresence" pathsPrivateDisturbance)
             "Subtle Presence"
             "is-173x137"
-            SubtlePresence
+            (ImageClick PrivateDisturbance "subtlePresence")
         , divTileImgGenerator
             (unwrapPath "noPrisoners" pathsPrivateDisturbance)
             "No Prisoners"
             "is-173x137"
-            NoPrisoners
+            (ImageClick PrivateDisturbance "noPrisoners")
         ]
 
 

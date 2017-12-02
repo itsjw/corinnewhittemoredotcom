@@ -4,21 +4,8 @@ import Html exposing (Attribute, figure, section, text, Html, div, img, p, a)
 import Html.Attributes exposing (style, class, src, alt, id)
 import ArtworkCopy exposing (valleyCulturaArtistStatement, valleyCulturaMaterialsProcess)
 import ImagePaths exposing (pathsValleyCultura)
-import Util exposing (ImagePath, ImagePaths, unwrapPath)
-import Messages
-    exposing
-        ( Msg
-            ( MariaMarilyn
-            , HablaTex
-            , DigitalLandscape
-            , RodriguezFlowerShop
-            , Crossing
-            , SunsetMinimart
-            , MarthasFruitStand
-            , MarthasFruitStandTwo
-            )
-        , divTileImgGenerator
-        )
+import Util exposing (ImagePath, ImagePaths, unwrapPath, Series(ValleyCultura))
+import Messages exposing (Msg(ImageClick), divTileImgGenerator)
 
 
 {--css globals:
@@ -72,7 +59,7 @@ divTileImgMarthasFruitStand =
         "Marthas Fruit Stand"
         -- "is-169x142"
         "is-square"
-        MarthasFruitStand
+        (ImageClick ValleyCultura "marthasFruitStand")
 
 
 divTileImgSunsetMinimart : Html Msg
@@ -82,7 +69,7 @@ divTileImgSunsetMinimart =
         "Sunset Minimart"
         -- "is-169x142"
         "is-square"
-        SunsetMinimart
+        (ImageClick ValleyCultura "sunsetMinimart")
 
 
 divTileMaterialsAndProcess : Html msg
@@ -124,7 +111,7 @@ divTileImgRodriguezFlowerShop =
         (unwrapPath "rodriguezFlowerShop" pathsValleyCultura)
         "Rodriguez Flower Shop"
         "is-384x68"
-        RodriguezFlowerShop
+        (ImageClick ValleyCultura "rodriguezFlowerShop")
 
 
 divTileImgDigitalLandscape : Html Msg
@@ -133,7 +120,7 @@ divTileImgDigitalLandscape =
         (unwrapPath "digitalLandscape" pathsValleyCultura)
         "Digital Landscape"
         "is-384x68"
-        DigitalLandscape
+        (ImageClick ValleyCultura "digitalLandscape")
 
 
 divTileImgHablaTex : Html Msg
@@ -142,7 +129,7 @@ divTileImgHablaTex =
         (unwrapPath "hablaTex" pathsValleyCultura)
         "Habla Tex"
         "is-384-68"
-        HablaTex
+        (ImageClick ValleyCultura "hablaTex")
 
 
 divTileImgMariaMarilyn : Html Msg
@@ -151,7 +138,7 @@ divTileImgMariaMarilyn =
         (unwrapPath "mariaMarilyn" pathsValleyCultura)
         "Maria Marilyn"
         "is-384-68"
-        MariaMarilyn
+        (ImageClick ValleyCultura "mariaMarilyn")
 
 
 divTileImgCrossing : Html Msg
@@ -160,7 +147,7 @@ divTileImgCrossing =
         (unwrapPath "crossing" pathsValleyCultura)
         "The Apparition: Border Crossing"
         "is-384-256"
-        Crossing
+        (ImageClick ValleyCultura "crossing")
 
 
 divTileArtistStatement : Html msg

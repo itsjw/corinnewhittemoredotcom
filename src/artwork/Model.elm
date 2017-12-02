@@ -5,23 +5,50 @@ module Model
         , invertActiveArtwork
         , deactivateModal
         , toggleScrollDisable
-        , selectedArtwork
+          -- , selectedArtwork
         )
 
 import Dict exposing (Dict)
 import Html exposing (Attribute)
 import Html.Attributes exposing (style)
-import Util exposing (artworkStrings)
+import ImagePaths
+    exposing
+        ( pathsArtworkHiRes
+        , artworkStrings
+        , ArtworkModal
+        , modalValleyCultura
+        )
+
+
+type alias ModalDisplay =
+    Maybe ArtworkModal
+
+
+modalDisplayPath : Maybe ArtworkModal -> String
+modalDisplayPath awModal =
+    case awModal of
+        Just modal ->
+            modal.currentPath
+
+        Nothing ->
+            ""
 
 
 type alias Model =
     { tab : String
-    , activeArtwork : Dict.Dict String Bool
+    , activeArtwork : String
     , modalImagePath : String -- Path to images
     , disableScroll : Bool
     , windowPos : Float
     , errors : String
     , isBurgerActive : Bool
+    , imageIndex : Int
+    , modalValleyCultura : ArtworkModal
+    , modalPrivateDisturbance : ArtworkModal
+    , modalTheItalyJournals : ArtworkModal
+    , modalImportantPapers : ArtworkModal
+    , modalDisplay : ModalDisplay
+    , modalIsActive : Bool
     }
 
 
@@ -83,13 +110,28 @@ falses =
 
 initialModel : Model
 initialModel =
-    { tab = "ValleyCultura"
-    , activeArtwork = Dict.fromList <| List.map2 (,) artworkStrings falses
-    , modalImagePath = "" -- Path to images
+    { -- set tab to start with when loading the page:
+      tab = "ValleyCultura"
+    , activeArtwork = ""
+    , modalImagePath = "" -- Path to highres images
+
+    -- disableScroll is True when modal is active:
     , disableScroll = False
-    , windowPos = 0 -- used primarily for modal
+
+    -- windowPos is used to return mouse position
+    -- to original position when exiting modal:
+    , windowPos = 0
     , errors = ""
     , isBurgerActive = False
+    , imageIndex = -1 -- Negative Value indicates modal is down
+
+    -- Modal structures contain paths to images to be shown:
+    , modalValleyCultura = ImagePaths.modalValleyCultura
+    , modalPrivateDisturbance = ImagePaths.modalPrivateDisturbance
+    , modalTheItalyJournals = ImagePaths.modalItalyJournals
+    , modalImportantPapers = ImagePaths.modalImportantPapers
+    , modalDisplay = Nothing
+    , modalIsActive = False
     }
 
 
@@ -103,29 +145,28 @@ shrek b =
             Just (not b)
 
 
-selectedArtwork : Model -> String
-selectedArtwork model =
-    let
-        -- unwrapping in an inelegant way
-        -- i am open to suggestions...?
-        theTrueVine : Dict.Dict String Bool
-        theTrueVine =
-            Dict.filter (\_ v -> v == True) model.activeArtwork
 
-        trueVineAsList : List ( String, Bool )
-        trueVineAsList =
-            Dict.toList theTrueVine
-
-        key : String
-        key =
-            case List.head trueVineAsList of
-                Nothing ->
-                    ""
-
-                Just val ->
-                    Tuple.first val
-    in
-        key
+{--selectedArtwork : Model -> String
+  - selectedArtwork model =
+  -     let
+  -         theTrueVine : Dict.Dict String Bool
+  -         theTrueVine =
+  -             Dict.filter (\_ v -> v == True) model.activeArtwork
+  -
+  -         trueVineAsList : List ( String, Bool )
+  -         trueVineAsList =
+  -             Dict.toList theTrueVine
+  -
+  -         key : String
+  -         key =
+  -             case List.head trueVineAsList of
+  -                 Nothing ->
+  -                     ""
+  -
+  -                 Just val ->
+  -                     Tuple.first val
+  -     in
+  -         key --}
 
 
 invertActiveArtwork : Dict String Bool -> String -> Dict String Bool
