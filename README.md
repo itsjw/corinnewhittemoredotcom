@@ -1,1 +1,1 @@
-Home of Corinne Whittemore's design and artwork.
+Corinne Whittemore's design and artwork.
