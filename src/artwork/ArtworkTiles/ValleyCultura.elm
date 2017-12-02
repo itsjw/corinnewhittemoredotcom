@@ -179,7 +179,12 @@ divTileIsAncestor =
 
 sectionValleyCultura : Html Msg
 sectionValleyCultura =
-    section [ class "section", id "valley-cultura", style [ ( "zoom", "0.8" ) ] ]
+    section
+        [ class "section"
+        , id "valley-cultura"
+        , style
+            [ ( "zoom", "0.8" ), ( "-moz-transform", "scale(0.8)" ) ]
+        ]
         [ div [ class "container" ]
             [ divTileIsAncestor ]
         ]

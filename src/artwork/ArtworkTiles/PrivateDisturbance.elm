@@ -117,4 +117,10 @@ divTilePrivateDisturbance =
 sectionPrivateDisturbance : Html Msg
 sectionPrivateDisturbance =
     section [ class "section", id "private-disturbance" ]
-        [ div [ class "container", style [ ( "zoom", "0.8" ) ] ] [ divTilePrivateDisturbance ] ]
+        [ div
+            [ class "container"
+            , style
+                [ ( "zoom", "0.8" ), ( "-moz-transform", "scale(0.8)" ) ]
+            ]
+            [ divTilePrivateDisturbance ]
+        ]

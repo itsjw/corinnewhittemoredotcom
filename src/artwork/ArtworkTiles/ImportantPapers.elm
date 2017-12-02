@@ -44,5 +44,8 @@ divTileImportantPapers =
 
 sectionImportantPapers : Html Msg
 sectionImportantPapers =
-    section [ class "section", style [ ( "zoom", "0.8" ) ] ]
+    section
+        [ class "section"
+        , style [ ( "zoom", "0.8" ), ( "-moz-transform", "scale(0.8)" ) ]
+        ]
         [ div [ class "container" ] [ divTileImportantPapers ] ]
