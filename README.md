@@ -1,1 +1,1 @@
-Website for Corinne Whittemore
+Corinne Whittemore's design and artwork.
