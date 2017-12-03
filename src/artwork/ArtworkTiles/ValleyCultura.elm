@@ -29,19 +29,6 @@ attributeTextAlign =
     style [ ( "text-align", "justify" ) ]
 
 
-attributePaddingColumns : Attribute msg
-attributePaddingColumns =
-    style
-        [ ( "padding-top", "84px" )
-        , ( "padding-bottom", "34px" )
-        ]
-
-
-attributePaddingImgCrossing : Attribute msg
-attributePaddingImgCrossing =
-    style [ ( "padding-top", "28px" ) ]
-
-
 
 -- tiles -----------------------------------------------------------------------
 --
@@ -91,7 +78,7 @@ divTileTwoVerticalImages =
 
 divColumnsImagesAndCopy : Html Msg
 divColumnsImagesAndCopy =
-    div [ class "columns", attributePaddingColumns ]
+    div [ class "columns" ]
         [ div [ class "column" ] [ divTileTwoVerticalImages ]
         , div [ class "column" ] [ divTileMaterialsAndProcess ]
         ]
@@ -99,7 +86,7 @@ divColumnsImagesAndCopy =
 
 divTileSecondHalf : Html Msg
 divTileSecondHalf =
-    div [ class "tile is-vertical is-parent", attributePaddingImgCrossing ]
+    div [ class "tile is-vertical is-parent" ]
         [ divTileImgCrossing
         , divColumnsImagesAndCopy
         ]
@@ -155,9 +142,7 @@ divTileArtistStatement =
     div [ class "tile is-child" ]
         [ div [ class "title font-garamond" ] [ text "Artist Statement" ]
         , div [ class "content" ]
-            [ p [ attributeTextAlign ]
-                [ text valleyCulturaArtistStatement ]
-            ]
+            [ p [ attributeTextAlign ] [ text valleyCulturaArtistStatement ] ]
         ]
 
 
@@ -174,7 +159,9 @@ divTileFirstHalf =
 
 divTileIsAncestor : Html Msg
 divTileIsAncestor =
-    div [ class "tile is-ancestor" ] [ divTileFirstHalf, divTileSecondHalf ]
+    div
+        [ class "tile is-ancestor" ]
+        [ divTileFirstHalf, divTileSecondHalf ]
 
 
 sectionValleyCultura : Html Msg
@@ -182,9 +169,5 @@ sectionValleyCultura =
     section
         [ class "section"
         , id "valley-cultura"
-        , style
-            [ ( "zoom", "0.8" ), ( "-moz-transform", "scale(0.8)" ) ]
         ]
-        [ div [ class "container" ]
-            [ divTileIsAncestor ]
-        ]
+        [ div [ class "container" ] [ divTileIsAncestor ] ]
