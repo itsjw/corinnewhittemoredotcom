@@ -11,7 +11,6 @@ import ImagePaths
     exposing
         ( artworkDimensionsDesktop
         , artworkDimensionsMobile
-        , artworkNameArray
         )
 import ImportantPapers exposing (content)
 import Modal exposing (divModal)
