@@ -6,11 +6,8 @@ module ImagePaths
         , pathsImportantPapers
         , pathsTheItalyJournal
         , pathsValleyCultura
-        , getArtworkIndex
-        , getTitles
         , artworkDimensionsDesktop
         , artworkDimensionsMobile
-        , artworkNameArray
         , ArtworkModal
         , modalValleyCultura
         , modalPrivateDisturbance
@@ -451,7 +448,7 @@ artworkDimensionsMobile =
             , "is-720x900" -- test
 
             -- Important Papers
-            , ""
+            , "is-768x422"
 
             -- Important Paper: No Dimension Implemented Yet because a
             -- dummy source
@@ -490,35 +487,10 @@ artworkDimensionsDesktop =
             , "is-615x768" -- Test
 
             -- Important Papers
-            , ""
-
-            -- Important Paper: No Dimension Implemented Yet because a
-            -- dummy source
+            , "is-1024x563"
             ]
     in
         Dict.fromList <| List.map2 (,) artworkStrings dimensions
-
-
-
--- used to give current position in array:
-
-
-artworkStringToIndex : Dict String Int
-artworkStringToIndex =
-    Dict.fromList <|
-        List.map2 (,)
-            (Dict.keys pathsArtworkHiRes)
-            (List.range 0 (pathsArtworkHiResLen - 1))
-
-
-getArtworkIndex : String -> Int
-getArtworkIndex key =
-    case Dict.get key artworkStringToIndex of
-        Just i ->
-            i
-
-        Nothing ->
-            -1
 
 
 type Direction
@@ -555,9 +527,6 @@ updateIndexPos direction modal =
                 prevIndex =
                     (modal.currentIndex - 1) % modal.size
 
-                _ =
-                    Debug.log "prev index: " prevIndex
-
                 prevPath =
                     case Array.get prevIndex modal.paths of
                         Just path ->
@@ -565,9 +534,6 @@ updateIndexPos direction modal =
 
                         Nothing ->
                             ""
-
-                _ =
-                    Debug.log "prev path: " prevPath
             in
                 { modal
                     | currentIndex = prevIndex
@@ -616,101 +582,3 @@ updateModal key modal =
                 path
         , currentTitle = key
     }
-
-
-artworkNameArray : Array String
-artworkNameArray =
-    Array.fromList
-        [ "mariaMarilyn" -- Valley Cultura
-        , "hablaTex"
-        , "digitalLandscape"
-        , "rodriguezFlowerShop"
-        , "crossing"
-        , "sunsetMinimart"
-        , "marthasFruitStand"
-        , "marthasFruitStandTwo"
-        , "excessiveForce" -- Private Disturbance
-        , "battleField"
-        , "mindGames"
-        , "shiftingPerspective"
-        , "subtlePresence"
-        , "noPrisoners"
-        , "bed" -- The Italy Journals
-        , "bush"
-        , "period"
-        , "spent"
-        , "test"
-        , "importantPaper" -- Important Papers
-        ]
-
-
-
--- keeps a number within a range
-
-
-getTitles : Int -> String -> String
-getTitles i tab =
-    let
-        boundInRange : Int -> Int -> Int -> Int
-        boundInRange n beg end =
-            beg + (n - beg) % ((end - 1) - beg)
-
-        _ =
-            Debug.log "i" i
-
-        j : Int
-        j =
-            case tab of
-                -- if this order is not maintained
-                -- in high res paths then you're in trouble:
-                "ValleyCultura" ->
-                    boundInRange i 0 (pathsValleyCulturaLen - 1)
-
-                "PrivateDisturbance" ->
-                    boundInRange
-                        i
-                        pathsValleyCulturaLen
-                        (pathsPrivateDisturbanceLen - 1)
-
-                "TheItalyJournals" ->
-                    boundInRange
-                        i
-                        pathsPrivateDisturbanceLen
-                        (pathsTheItalyJournalLen - 1)
-
-                "ImportantPapers" ->
-                    boundInRange
-                        i
-                        pathsTheItalyJournalLen
-                        (pathsArtworkHiResLen - 1)
-
-                _ ->
-                    -- this will always produce the empty string below
-                    -1
-
-        _ =
-            Debug.log "j" j
-    in
-        case Array.get j artworkNameArray of
-            Just str ->
-                str
-
-            Nothing ->
-                let
-                    _ =
-                        Debug.log "failure: " ":("
-                in
-                    ""
-
-
-
--- paths to thumbnails (low res):
-
-
-allPaths : ImagePaths
-allPaths =
-    Dict.fromList <|
-        Dict.toList pathsValleyCultura
-            ++ Dict.toList pathsPrivateDisturbance
-            ++ Dict.toList pathsTheItalyJournal
-            ++ Dict.toList pathsImportantPapers
