@@ -10,8 +10,6 @@ import Util exposing (Series(..))
 import ImagePaths
     exposing
         ( ArtworkModal
-        , getArtworkIndex
-        , getTitles
         , updateModal
         , modalValleyCultura
         , modalPrivateDisturbance
@@ -135,22 +133,22 @@ update msg model =
         KeyMsg keyCode ->
             ( { model
                 | modalIsActive =
-                    if keyCode == 27 && model.disableScroll then
+                    if keyCode == 27 && model.modalIsActive then
                         False
                     else
-                        True
+                        False
                 , disableScroll =
-                    if keyCode == 27 && model.disableScroll then
+                    if keyCode == 27 && model.modalIsActive then
                         False
                     else
                         model.disableScroll
                 , activeArtwork =
-                    if keyCode == 27 && model.disableScroll then
+                    if keyCode == 27 && model.modalIsActive then
                         ""
                     else
                         model.activeArtwork
                 , modalDisplay =
-                    if keyCode == 27 && model.disableScroll then
+                    if keyCode == 27 && model.modalIsActive then
                         Nothing
                     else
                         model.modalDisplay
