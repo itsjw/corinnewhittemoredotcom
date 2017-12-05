@@ -6,3 +6,5 @@ tests
 .sass-cache
 LintConfig.elm
 tags
+.DS_Store
+style.css.map
