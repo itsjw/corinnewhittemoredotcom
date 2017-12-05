@@ -1,6 +1,6 @@
 module ValleyCultura exposing (content)
 
-import Html exposing (Attribute, figure, section, text, Html, div, img, p, a)
+import Html exposing (Attribute, article, figure, section, text, Html, div, img, p, a)
 import Html.Attributes exposing (style, class, src, alt, id)
 import ArtworkCopy exposing (valleyCulturaArtistStatement, valleyCulturaMaterialsProcess)
 import ImagePaths exposing (pathsValleyCultura)
@@ -31,9 +31,6 @@ attributeTextAlign =
 
 
 -- tiles -----------------------------------------------------------------------
---
---
--- tiles with zero level depth that contain images within them
 
 
 divTileImgMarthasFruitStand : Html Msg
@@ -61,34 +58,12 @@ divTileImgSunsetMinimart =
 
 divTileMaterialsAndProcess : Html msg
 divTileMaterialsAndProcess =
-    div [ class "tile is-vertical" ]
-        [ p [ class "title font-garamond" ] [ text "Materials &\nProcess" ]
-        , div [ class "content", attributeTextAlign ]
-            [ p [] [ text valleyCulturaMaterialsProcess ] ]
-        ]
-
-
-divTileTwoVerticalImages : Html Msg
-divTileTwoVerticalImages =
-    div [ class "tile is-vertical" ]
-        [ divTileImgSunsetMinimart
-        , divTileImgMarthasFruitStand
-        ]
-
-
-divColumnsImagesAndCopy : Html Msg
-divColumnsImagesAndCopy =
-    div [ class "columns" ]
-        [ div [ class "column" ] [ divTileTwoVerticalImages ]
-        , div [ class "column" ] [ divTileMaterialsAndProcess ]
-        ]
-
-
-divTileSecondHalf : Html Msg
-divTileSecondHalf =
-    div [ class "tile is-vertical is-parent" ]
-        [ divTileImgCrossing
-        , divColumnsImagesAndCopy
+    div [ class "tile is-parent" ]
+        [ div [ class "tile is-child is-vertical" ]
+            [ p [ class "title font-garamond" ] [ text "Materials &\nProcess" ]
+            , article [ class "content", attributeTextAlign ]
+                [ p [] [ text valleyCulturaMaterialsProcess ] ]
+            ]
         ]
 
 
@@ -128,6 +103,15 @@ divTileImgMariaMarilyn =
         (ImageClick ValleyCultura "mariaMarilyn")
 
 
+divTileArtistStatement : Html msg
+divTileArtistStatement =
+    div [ class "tile is-child is-vertical is-6" ]
+        [ div [ class "title font-garamond" ] [ text "Artist Statement" ]
+        , div [ class "content" ]
+            [ p [ attributeTextAlign ] [ text valleyCulturaArtistStatement ] ]
+        ]
+
+
 divTileImgCrossing : Html Msg
 divTileImgCrossing =
     divTileImgGenerator
@@ -137,37 +121,60 @@ divTileImgCrossing =
         (ImageClick ValleyCultura "crossing")
 
 
-divTileArtistStatement : Html msg
-divTileArtistStatement =
-    div [ class "tile is-child" ]
-        [ div [ class "title font-garamond" ] [ text "Artist Statement" ]
-        , div [ class "content" ]
-            [ p [ attributeTextAlign ] [ text valleyCulturaArtistStatement ] ]
+divTileTopHalf : Html Msg
+divTileTopHalf =
+    div [ class "tile" ]
+        [ div [ class "tile is-parent" ]
+            [ divTileArtistStatement
+            , divTileImgCrossing
+            ]
         ]
 
 
-divTileFirstHalf : Html Msg
-divTileFirstHalf =
-    div [ class "tile is-6 is-parent is-vertical" ]
-        [ divTileArtistStatement
-        , divTileImgMariaMarilyn
+divTileImagesBottomLeft : Html Msg
+divTileImagesBottomLeft =
+    div [ class "tile is-vertical is-parent" ]
+        [ divTileImgMariaMarilyn
         , divTileImgHablaTex
         , divTileImgDigitalLandscape
         , divTileImgRodriguezFlowerShop
         ]
 
 
+divTileImagesBottomRightLeft : Html Msg
+divTileImagesBottomRightLeft =
+    div [ class "tile is-child is-parent" ]
+        [ divTileImgSunsetMinimart
+        , divTileImgMarthasFruitStand
+        ]
+
+
+divTileImagesBottomRight : Html Msg
+divTileImagesBottomRight =
+    div [ class "tile" ]
+        [ divTileImagesBottomRightLeft
+        , divTileMaterialsAndProcess
+        ]
+
+
+divTileBottomHalf : Html Msg
+divTileBottomHalf =
+    div [ class "tile" ] [ divTileImagesBottomLeft, divTileImagesBottomRight ]
+
+
 divTileIsAncestor : Html Msg
 divTileIsAncestor =
     div
-        [ class "tile is-ancestor" ]
-        [ divTileFirstHalf, divTileSecondHalf ]
+        [ class "tile is-ancestor is-vertical" ]
+        [ divTileTopHalf, divTileBottomHalf ]
 
 
 sectionValleyCultura : Html Msg
 sectionValleyCultura =
     section
         [ class "section"
-        , id "valley-cultura"
+        , style
+            [ ( "padding-bottom", "50%" )
+            ]
         ]
         [ div [ class "container" ] [ divTileIsAncestor ] ]
