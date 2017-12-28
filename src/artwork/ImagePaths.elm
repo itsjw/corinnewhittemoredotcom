@@ -34,28 +34,28 @@ pathsValleyCultura : ImagePaths
 pathsValleyCultura =
     Dict.fromList
         [ ( "mariaMarilyn"
-          , "../../images/artwork/valleyCultura/MariaMarilyn_thumb.png"
+          , "../../images/artwork/valleyCultura/_squares/png/6_dosMarias.png"
           )
         , ( "hablaTex"
-          , "../../images/artwork/valleyCultura/HablaTex_thumb.png"
+          , "../../images/artwork/valleyCultura/_squares/png/1_hablaTex.png"
           )
         , ( "digitalLandscape"
-          , "../../images/artwork/valleyCultura/DigitalLandscape_thumb.png"
+          , "../../images/artwork/valleyCultura/_squares/png/3_elBombon_lucidScape.png"
           )
         , ( "rodriguezFlowerShop"
-          , "../../images/artwork/valleyCultura/Rodriguez-Flower-Shop_thumb.png"
+          , "../../images/artwork/valleyCultura/_squares/png/2_rodriguezFlowerShop.png"
           )
         , ( "crossing"
-          , "../../images/artwork/valleyCultura/crossing_thumb.png"
+          , "../../images/artwork/valleyCultura/_squares/png/7_theApparitionBorderCrossing.png"
           )
         , ( "sunsetMinimart"
-          , "../../images/artwork/valleyCultura/SunsetMiniMart_thumb.png"
+          , "../../images/artwork/valleyCultura/_squares/png/5_sunsetMinimart.png"
           )
         , ( "marthasFruitStand"
-          , "../../images/artwork/valleyCultura/MarthasFruitStand_thumb.png"
+          , "../../images/artwork/valleyCultura/_squares/png/4_marthasFruitStand.png"
           )
         , ( "marthasFruitStandTwo"
-          , "../../images/artwork/valleyCultura/MarthasFruitStand_thumb2.png"
+          , "../../images/artwork/valleyCultura/_squares/png/4_2marthasFruitStand.png"
           )
         ]
 
@@ -505,9 +505,6 @@ updateIndexPos direction modal =
             let
                 nextIndex =
                     (modal.currentIndex + 1) % modal.size
-
-                _ =
-                    Debug.log "next index: " nextIndex
 
                 nextPath =
                     case Array.get nextIndex modal.paths of

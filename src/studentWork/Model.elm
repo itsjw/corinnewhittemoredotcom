@@ -4,12 +4,16 @@ module Model exposing (..)
 
 
 type alias Model =
-    String
+    { hoverAttribute : String
+    , isBurgerActive : Bool
+    }
 
 
 initialModel : Model
 initialModel =
-    "IndependentStudy"
+    { hoverAttribute = ""
+    , isBurgerActive = False
+    }
 
 
 init : ( Model, Cmd msg )

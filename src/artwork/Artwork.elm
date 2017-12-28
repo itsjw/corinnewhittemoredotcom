@@ -51,14 +51,6 @@ attributeFontSize =
     style [ ( "font-size", "14px" ) ]
 
 
-attributePaddingLeftRight : Attribute msg
-attributePaddingLeftRight =
-    style
-        [ ( "padding-left", "150px" )
-        , ( "padding-right", "150px" )
-        ]
-
-
 
 -- init ------------------------------------------------------------------------
 
@@ -81,7 +73,7 @@ view : Model -> Html Msg
 view model =
     div []
         [ div [ onMouseMove GetScrollPos, toggleScrollDisable model ]
-            [ navNavBar model.isBurgerActive Burger
+            [ navNavBar model.isBurgerActive Burger "../images/ecmw_black.png"
             , sectionHeroArtwork
             , divTabs model
             , divArtworkContent model
@@ -145,6 +137,14 @@ divArtworkContent model =
         ItalyJournals.content
     else
         ImportantPapers.content
+
+
+attributePaddingLeftRight : Attribute msg
+attributePaddingLeftRight =
+    style
+        [ ( "padding-left", "150px" )
+        , ( "padding-right", "150px" )
+        ]
 
 
 divTabs : Model -> Html Msg

@@ -8260,21 +8260,22 @@ var _elm_lang$html$Html_Events$Options = F2(
 		return {stopPropagation: a, preventDefault: b};
 	});
 
-var _user$project$Hero$subtitle = '';
-var _user$project$Hero$sectionHeroStudentWork = A2(
-	_elm_lang$html$Html$section,
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('hero'),
-		_1: {ctor: '[]'}
-	},
-	{
-		ctor: '::',
-		_0: A2(
-			_elm_lang$html$Html$div,
+var _user$project$Messages$HistoryOfGraphicDesign = {ctor: 'HistoryOfGraphicDesign'};
+var _user$project$Messages$IndependentStudy = {ctor: 'IndependentStudy'};
+var _user$project$Messages$Typography = {ctor: 'Typography'};
+var _user$project$Messages$DigitalMedia = {ctor: 'DigitalMedia'};
+var _user$project$Messages$DesignTwo = {ctor: 'DesignTwo'};
+var _user$project$Messages$DesignOne = {ctor: 'DesignOne'};
+var _user$project$Messages$GraphicDesignOne = {ctor: 'GraphicDesignOne'};
+var _user$project$Messages$Burger = {ctor: 'Burger'};
+
+var _user$project$Columns$classTileGenerator = F2(
+	function (title, link) {
+		return A2(
+			_elm_lang$html$Html$a,
 			{
 				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$class('hero-body'),
+				_0: _elm_lang$html$Html_Attributes$href(link),
 				_1: {ctor: '[]'}
 			},
 			{
@@ -8283,135 +8284,528 @@ var _user$project$Hero$sectionHeroStudentWork = A2(
 					_elm_lang$html$Html$div,
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$class('container has-text-centered font-garamond'),
+						_0: _elm_lang$html$Html_Attributes$class('content hvr-underline-from-left'),
 						_1: {ctor: '[]'}
 					},
 					{
 						ctor: '::',
 						_0: A2(
-							_elm_lang$html$Html$h1,
+							_elm_lang$html$Html$h3,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$class('title'),
-								_1: {ctor: '[]'}
+								_0: _elm_lang$html$Html_Attributes$class('title is-1 has-text-weight-bold has-text-grey-dark'),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$style(
+										{
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'white-space', _1: 'pre-wrap'},
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								}
 							},
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html$text('Student Works'),
+								_0: _elm_lang$html$Html$text(title),
 								_1: {ctor: '[]'}
 							}),
-						_1: {
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$h2,
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$class('subtitle'),
-									_1: {ctor: '[]'}
-								},
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html$text(_user$project$Hero$subtitle),
-									_1: {ctor: '[]'}
-								}),
-							_1: {ctor: '[]'}
-						}
+						_1: {ctor: '[]'}
 					}),
 				_1: {ctor: '[]'}
-			}),
-		_1: {ctor: '[]'}
+			});
 	});
-var _user$project$Hero$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProgram(_user$project$Hero$sectionHeroStudentWork);
-
-var _user$project$NavBar$divNavbarBurger = A2(
+var _user$project$Columns$divTileArts1311 = A2(
 	_elm_lang$html$Html$div,
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('navbar-burger burger'),
-		_1: {
-			ctor: '::',
-			_0: A2(_elm_lang$html$Html_Attributes$attribute, 'data-target', 'navMenubd'),
-			_1: {ctor: '[]'}
-		}
+		_0: _elm_lang$html$Html_Attributes$class('tile is-parent'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: A2(_user$project$Columns$classTileGenerator, 'ARTS\n1311', './courses/1_ARTS1311-DesignOne/designone.html'),
+		_1: {ctor: '[]'}
+	});
+var _user$project$Columns$divTileArts1312 = A2(
+	_elm_lang$html$Html$div,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('tile is-parent'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: A2(_user$project$Columns$classTileGenerator, 'ARTS\n1312', './courses/2_ARTS1312-DesignTwo/designtwo.html'),
+		_1: {ctor: '[]'}
+	});
+var _user$project$Columns$divTileArts2348 = A2(
+	_elm_lang$html$Html$div,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('tile is-parent'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: A2(_user$project$Columns$classTileGenerator, 'ARTS\n2348', './courses/3_ARTS2348-DigitalMedia/projects/project_1/digitalmedia.html'),
+		_1: {ctor: '[]'}
+	});
+var _user$project$Columns$divTileArts2363 = A2(
+	_elm_lang$html$Html$div,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('tile is-parent'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: A2(_user$project$Columns$classTileGenerator, 'ARTS\n2363', './courses/4_ARTS2363-Typography/typography.html\n'),
+		_1: {ctor: '[]'}
+	});
+var _user$project$Columns$divTileArts3354 = A2(
+	_elm_lang$html$Html$div,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('tile is-parent'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: A2(_user$project$Columns$classTileGenerator, 'ARTS\n3354', './courses/5_ARTS3354-HistoryOfGraphicDesign/historyofgraphicdesign.html\n'),
+		_1: {ctor: '[]'}
+	});
+var _user$project$Columns$divTileArts4333 = A2(
+	_elm_lang$html$Html$div,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('tile is-parent'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: A2(_user$project$Columns$classTileGenerator, 'ARTS\n4333', './courses/6_ARTS4333-GraphicDesignOne/graphicdesignone.html\n'),
+		_1: {ctor: '[]'}
+	});
+var _user$project$Columns$divTileArts4391 = A2(
+	_elm_lang$html$Html$div,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('tile is-parent'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: A2(_user$project$Columns$classTileGenerator, 'ARTS\n4391', './courses/7_ARTS4391-IndepdentStudy/independentstudy.html\n'),
+		_1: {ctor: '[]'}
+	});
+var _user$project$Columns$divTileClasses = A2(
+	_elm_lang$html$Html$div,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('tile is-ancestor is-vertical'),
+		_1: {ctor: '[]'}
 	},
 	{
 		ctor: '::',
 		_0: A2(
-			_elm_lang$html$Html$span,
-			{ctor: '[]'},
-			{ctor: '[]'}),
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('tile is-parent'),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$class('tile is-3'),
+						_1: {ctor: '[]'}
+					},
+					{ctor: '[]'}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$class('tile'),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: _user$project$Columns$divTileArts1311,
+							_1: {
+								ctor: '::',
+								_0: _user$project$Columns$divTileArts1312,
+								_1: {
+									ctor: '::',
+									_0: _user$project$Columns$divTileArts2363,
+									_1: {ctor: '[]'}
+								}
+							}
+						}),
+					_1: {ctor: '[]'}
+				}
+			}),
 		_1: {
 			ctor: '::',
 			_0: A2(
-				_elm_lang$html$Html$span,
-				{ctor: '[]'},
-				{ctor: '[]'}),
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('tile is-parent'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$class('tile is-2'),
+							_1: {ctor: '[]'}
+						},
+						{ctor: '[]'}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('tile'),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _user$project$Columns$divTileArts2348,
+								_1: {
+									ctor: '::',
+									_0: _user$project$Columns$divTileArts3354,
+									_1: {
+										ctor: '::',
+										_0: _user$project$Columns$divTileArts4333,
+										_1: {
+											ctor: '::',
+											_0: _user$project$Columns$divTileArts4391,
+											_1: {ctor: '[]'}
+										}
+									}
+								}
+							}),
+						_1: {ctor: '[]'}
+					}
+				}),
+			_1: {ctor: '[]'}
+		}
+	});
+var _user$project$Columns$content = A2(
+	_elm_lang$html$Html$section,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$style(
+			{
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'zoom', _1: '0.88'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: '-moz-transform-origin', _1: 'top'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: '-moz-transform', _1: 'scale(0.88)'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'padding-top', _1: '9%'},
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: _user$project$Columns$divTileClasses,
+		_1: {ctor: '[]'}
+	});
+var _user$project$Columns$attributeBorder = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'border', _1: '1px solid black'},
+		_1: {ctor: '[]'}
+	});
+var _user$project$Columns$attributeAlignCenter = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'display', _1: '-webkit-flex'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: '-webkit-align-items', _1: 'center'},
 			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'align-items', _1: 'center'},
+					_1: {ctor: '[]'}
+				}
+			}
+		}
+	});
+
+var _user$project$Hero$attributeUnderline = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'alig-items', _1: 'center'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'border-bottom-color', _1: '#dbdbdb'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'border-bottom-style', _1: 'solid'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'border-bottom-width', _1: '1px'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'flex-grow', _1: '1'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'flex-shrink', _1: '0'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'box-sizing', _1: 'inherit'},
+									_1: {
+										ctor: '::',
+										_0: {ctor: '_Tuple2', _0: 'margin', _1: '0 auto'},
+										_1: {
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'width', _1: '33%'},
+											_1: {ctor: '[]'}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	});
+var _user$project$Hero$attributeUnselectable = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: '-webkit-user-select', _1: 'none'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: '-moz-user-select', _1: 'none'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: '-ms-user-select', _1: 'none'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: '-o-user-select', _1: 'none'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'user-select', _1: 'none'},
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		}
+	});
+var _user$project$Hero$sectionHeroStudentWork = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$section,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('hero'),
+				_1: {
+					ctor: '::',
+					_0: _user$project$Hero$attributeUnselectable,
+					_1: {ctor: '[]'}
+				}
+			},
+			{
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$class('hero-body'),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('container has-text-centered font-garamond'),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$h1,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$class('title'),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('Student Work'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$hr,
+				{
+					ctor: '::',
+					_0: _user$project$Hero$attributeUnderline,
+					_1: {ctor: '[]'}
+				},
+				{ctor: '[]'}),
+			_1: {ctor: '[]'}
+		}
+	});
+var _user$project$Hero$subtitle = '';
+var _user$project$Hero$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProgram(_user$project$Hero$sectionHeroStudentWork);
+
+var _user$project$Model$initialModel = {hoverAttribute: '', isBurgerActive: false};
+var _user$project$Model$init = {ctor: '_Tuple2', _0: _user$project$Model$initialModel, _1: _elm_lang$core$Platform_Cmd$none};
+var _user$project$Model$Model = F2(
+	function (a, b) {
+		return {hoverAttribute: a, isBurgerActive: b};
+	});
+
+var _user$project$NavBar$isBurgerActiveMenuStr = function (active) {
+	return active ? 'navbar-menu is-active' : 'navbar-menu';
+};
+var _user$project$NavBar$isBurgerActiveCrossStr = function (active) {
+	return active ? 'navbar-burger burger is-active' : 'navbar-burger burger';
+};
+var _user$project$NavBar$divNavbarBurger = F2(
+	function (status, msg) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class(
+					_user$project$NavBar$isBurgerActiveCrossStr(status)),
+				_1: {
+					ctor: '::',
+					_0: A2(_elm_lang$html$Html_Attributes$attribute, 'data-target', 'navMenubd'),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Events$onClick(msg),
+						_1: {ctor: '[]'}
+					}
+				}
+			},
+			{
 				ctor: '::',
 				_0: A2(
 					_elm_lang$html$Html$span,
 					{ctor: '[]'},
 					{ctor: '[]'}),
-				_1: {ctor: '[]'}
-			}
-		}
-	});
-var _user$project$NavBar$imgLogo = A2(
-	_elm_lang$html$Html$img,
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$src('/Users/joseph/Code/Elm/corinnewhittemoredotcom/images/ecmw_black.png'),
-		_1: {
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$alt('ecmw'),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$height(28),
-				_1: {ctor: '[]'}
-			}
-		}
-	},
-	{ctor: '[]'});
-var _user$project$NavBar$aNavbarItem = A2(
-	_elm_lang$html$Html$a,
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('navbar-item hvr-sink'),
-		_1: {
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$style(
-				{
+				_1: {
 					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'background-color', _1: 'white'},
-					_1: {ctor: '[]'}
-				}),
+					_0: A2(
+						_elm_lang$html$Html$span,
+						{ctor: '[]'},
+						{ctor: '[]'}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$span,
+							{ctor: '[]'},
+							{ctor: '[]'}),
+						_1: {ctor: '[]'}
+					}
+				}
+			});
+	});
+var _user$project$NavBar$imgLogo = function (path) {
+	return A2(
+		_elm_lang$html$Html$img,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$src(path),
 			_1: {
 				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$href('/Users/joseph/Code/Elm/corinnewhittemoredotcom/home.html'),
-				_1: {ctor: '[]'}
+				_0: _elm_lang$html$Html_Attributes$alt('ecmw'),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$height(28),
+					_1: {ctor: '[]'}
+				}
 			}
-		}
-	},
-	{
-		ctor: '::',
-		_0: _user$project$NavBar$imgLogo,
-		_1: {ctor: '[]'}
-	});
-var _user$project$NavBar$divNavbarBrand = A2(
-	_elm_lang$html$Html$div,
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('navbar-brand'),
-		_1: {ctor: '[]'}
-	},
-	{
-		ctor: '::',
-		_0: _user$project$NavBar$aNavbarItem,
-		_1: {
+		},
+		{ctor: '[]'});
+};
+var _user$project$NavBar$aNavbarItem = function (path) {
+	return A2(
+		_elm_lang$html$Html$a,
+		{
 			ctor: '::',
-			_0: _user$project$NavBar$divNavbarBurger,
+			_0: _elm_lang$html$Html_Attributes$class('navbar-item hvr-sink'),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$style(
+					{
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'background-color', _1: 'white'},
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$href('../home/home.html'),
+					_1: {ctor: '[]'}
+				}
+			}
+		},
+		{
+			ctor: '::',
+			_0: _user$project$NavBar$imgLogo(path),
 			_1: {ctor: '[]'}
-		}
+		});
+};
+var _user$project$NavBar$divNavbarBrand = F3(
+	function (status, msg, path) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('navbar-brand'),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _user$project$NavBar$aNavbarItem(path),
+				_1: {
+					ctor: '::',
+					_0: A2(_user$project$NavBar$divNavbarBurger, status, msg),
+					_1: {ctor: '[]'}
+				}
+			});
 	});
 var _user$project$NavBar$stylePaddingRight = _elm_lang$html$Html_Attributes$style(
 	{
@@ -8460,7 +8854,7 @@ var _user$project$NavBar$navBreadcrumb = A2(
 							_elm_lang$html$Html$a,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$href('/Users/joseph/Code/Elm/corinnewhittemoredotcom/src/artwork/artwork.html'),
+								_0: _elm_lang$html$Html_Attributes$href('../artwork/artwork.html'),
 								_1: {ctor: '[]'}
 							},
 							{
@@ -8481,7 +8875,7 @@ var _user$project$NavBar$navBreadcrumb = A2(
 								_elm_lang$html$Html$a,
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$href('/Users/joseph/Code/Elm/corinnewhittemoredotcom/src/design/design.html'),
+									_0: _elm_lang$html$Html_Attributes$href('../design/design.html'),
 									_1: {ctor: '[]'}
 								},
 								{
@@ -8502,7 +8896,7 @@ var _user$project$NavBar$navBreadcrumb = A2(
 									_elm_lang$html$Html$a,
 									{
 										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$href('/Users/joseph/Code/Elm/corinnewhittemoredotcom/src/studentWork/studentwork.html'),
+										_0: _elm_lang$html$Html_Attributes$href('../studentWork/studentwork.html'),
 										_1: {ctor: '[]'}
 									},
 									{
@@ -8552,68 +8946,83 @@ var _user$project$NavBar$divNavbarEnd = A2(
 		_0: _user$project$NavBar$navBreadcrumb,
 		_1: {ctor: '[]'}
 	});
-var _user$project$NavBar$divNavbarMenu = A2(
-	_elm_lang$html$Html$div,
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$id('navMenubd'),
-		_1: {
+var _user$project$NavBar$divNavbarMenu = function (status) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('navbar-menu'),
+			_0: _elm_lang$html$Html_Attributes$id('navMenubd'),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class(
+					_user$project$NavBar$isBurgerActiveMenuStr(status)),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: _user$project$NavBar$divNavbarEnd,
 			_1: {ctor: '[]'}
-		}
-	},
-	{
-		ctor: '::',
-		_0: _user$project$NavBar$divNavbarEnd,
-		_1: {ctor: '[]'}
+		});
+};
+var _user$project$NavBar$navNavBar = F3(
+	function (status, msg, path) {
+		return A2(
+			_elm_lang$html$Html$nav,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('navbar'),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: A3(_user$project$NavBar$divNavbarBrand, status, msg, path),
+				_1: {
+					ctor: '::',
+					_0: _user$project$NavBar$divNavbarMenu(status),
+					_1: {ctor: '[]'}
+				}
+			});
 	});
-var _user$project$NavBar$navNavBar = A2(
-	_elm_lang$html$Html$nav,
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('navbar'),
-		_1: {ctor: '[]'}
-	},
-	{
-		ctor: '::',
-		_0: _user$project$NavBar$divNavbarBrand,
-		_1: {
-			ctor: '::',
-			_0: _user$project$NavBar$divNavbarMenu,
-			_1: {ctor: '[]'}
-		}
+
+var _user$project$StudentWorkUtil$navStudentNavBar = F2(
+	function (isModalActive, msg) {
+		return A3(_user$project$NavBar$navNavBar, isModalActive, msg, '../../images/ecmw_black.png');
+	});
+
+var _user$project$Update$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		return {
+			ctor: '_Tuple2',
+			_0: _elm_lang$core$Native_Utils.update(
+				model,
+				{isBurgerActive: !model.isBurgerActive}),
+			_1: _elm_lang$core$Platform_Cmd$none
+		};
 	});
 
 var _user$project$StudentWork$subscriptions = function (model) {
 	return _elm_lang$core$Platform_Sub$none;
 };
-var _user$project$StudentWork$divArtworkContent = function (model) {
-	return _elm_lang$core$Native_Utils.eq(model, 'GraphicDesignOne') ? A2(
+var _user$project$StudentWork$view = function (model) {
+	return A2(
 		_elm_lang$html$Html$div,
 		{ctor: '[]'},
-		{ctor: '[]'}) : (_elm_lang$core$Native_Utils.eq(model, 'DesignOne') ? A2(
-		_elm_lang$html$Html$div,
-		{ctor: '[]'},
-		{ctor: '[]'}) : A2(
-		_elm_lang$html$Html$div,
-		{ctor: '[]'},
-		{ctor: '[]'}));
+		{
+			ctor: '::',
+			_0: A2(_user$project$StudentWorkUtil$navStudentNavBar, model.isBurgerActive, _user$project$Messages$Burger),
+			_1: {
+				ctor: '::',
+				_0: _user$project$Hero$sectionHeroStudentWork,
+				_1: {
+					ctor: '::',
+					_0: _user$project$Columns$content,
+					_1: {ctor: '[]'}
+				}
+			}
+		});
 };
-var _user$project$StudentWork$update = F2(
-	function (msg, model) {
-		var _p0 = msg;
-		switch (_p0.ctor) {
-			case 'GraphicDesignOne':
-				return {ctor: '_Tuple2', _0: 'GraphicDesignOne', _1: _elm_lang$core$Platform_Cmd$none};
-			case 'DesignOne':
-				return {ctor: '_Tuple2', _0: 'DesignOne', _1: _elm_lang$core$Platform_Cmd$none};
-			default:
-				return {ctor: '_Tuple2', _0: 'IndependentStudy', _1: _elm_lang$core$Platform_Cmd$none};
-		}
-	});
-var _user$project$StudentWork$initialModel = 'IndependentStudy';
-var _user$project$StudentWork$init = {ctor: '_Tuple2', _0: _user$project$StudentWork$initialModel, _1: _elm_lang$core$Platform_Cmd$none};
 var _user$project$StudentWork$attributePaddingLeftRight = _elm_lang$html$Html_Attributes$style(
 	{
 		ctor: '::',
@@ -8630,174 +9039,8 @@ var _user$project$StudentWork$attributeFontSize = _elm_lang$html$Html_Attributes
 		_0: {ctor: '_Tuple2', _0: 'font-size', _1: '14px'},
 		_1: {ctor: '[]'}
 	});
-var _user$project$StudentWork$ClassTabs = F3(
-	function (a, b, c) {
-		return {graphicDesignOne: a, designOne: b, indepdentStudy: c};
-	});
-var _user$project$StudentWork$isActiveString = function (model) {
-	return _elm_lang$core$Native_Utils.eq(model, 'GraphicDesignOne') ? A3(_user$project$StudentWork$ClassTabs, 'is-active', '', '') : (_elm_lang$core$Native_Utils.eq(model, 'DesignOne') ? A3(_user$project$StudentWork$ClassTabs, '', 'is-active', '') : A3(_user$project$StudentWork$ClassTabs, '', '', 'is-active'));
-};
-var _user$project$StudentWork$IndependentStudy = {ctor: 'IndependentStudy'};
-var _user$project$StudentWork$DesignOne = {ctor: 'DesignOne'};
-var _user$project$StudentWork$GraphicDesignOne = {ctor: 'GraphicDesignOne'};
-var _user$project$StudentWork$divTabs = function (model) {
-	return A2(
-		_elm_lang$html$Html$section,
-		{
-			ctor: '::',
-			_0: _user$project$StudentWork$attributePaddingLeftRight,
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$div,
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('tabs is-centered is-medium'),
-					_1: {
-						ctor: '::',
-						_0: _user$project$StudentWork$attributeFontSize,
-						_1: {ctor: '[]'}
-					}
-				},
-				{
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$ul,
-						{ctor: '[]'},
-						{
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$li,
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$class(
-										function (_) {
-											return _.indepdentStudy;
-										}(
-											_user$project$StudentWork$isActiveString(model))),
-									_1: {ctor: '[]'}
-								},
-								{
-									ctor: '::',
-									_0: A2(
-										_elm_lang$html$Html$a,
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html_Attributes$href('#'),
-											_1: {
-												ctor: '::',
-												_0: _elm_lang$html$Html_Events$onClick(_user$project$StudentWork$IndependentStudy),
-												_1: {ctor: '[]'}
-											}
-										},
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html$text('Indepedent Study'),
-											_1: {ctor: '[]'}
-										}),
-									_1: {ctor: '[]'}
-								}),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_elm_lang$html$Html$li,
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$class(
-											function (_) {
-												return _.graphicDesignOne;
-											}(
-												_user$project$StudentWork$isActiveString(model))),
-										_1: {ctor: '[]'}
-									},
-									{
-										ctor: '::',
-										_0: A2(
-											_elm_lang$html$Html$a,
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html_Attributes$href('#'),
-												_1: {
-													ctor: '::',
-													_0: _elm_lang$html$Html_Events$onClick(_user$project$StudentWork$GraphicDesignOne),
-													_1: {ctor: '[]'}
-												}
-											},
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html$text('Graphic Design I'),
-												_1: {ctor: '[]'}
-											}),
-										_1: {ctor: '[]'}
-									}),
-								_1: {
-									ctor: '::',
-									_0: A2(
-										_elm_lang$html$Html$li,
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html_Attributes$class(
-												function (_) {
-													return _.designOne;
-												}(
-													_user$project$StudentWork$isActiveString(model))),
-											_1: {ctor: '[]'}
-										},
-										{
-											ctor: '::',
-											_0: A2(
-												_elm_lang$html$Html$a,
-												{
-													ctor: '::',
-													_0: _elm_lang$html$Html_Attributes$href('#'),
-													_1: {
-														ctor: '::',
-														_0: _elm_lang$html$Html_Events$onClick(_user$project$StudentWork$DesignOne),
-														_1: {ctor: '[]'}
-													}
-												},
-												{
-													ctor: '::',
-													_0: _elm_lang$html$Html$text('Design I'),
-													_1: {ctor: '[]'}
-												}),
-											_1: {ctor: '[]'}
-										}),
-									_1: {ctor: '[]'}
-								}
-							}
-						}),
-					_1: {ctor: '[]'}
-				}),
-			_1: {ctor: '[]'}
-		});
-};
-var _user$project$StudentWork$view = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{ctor: '[]'},
-		{
-			ctor: '::',
-			_0: _user$project$NavBar$navNavBar,
-			_1: {
-				ctor: '::',
-				_0: _user$project$Hero$sectionHeroStudentWork,
-				_1: {
-					ctor: '::',
-					_0: _user$project$StudentWork$divTabs(model),
-					_1: {
-						ctor: '::',
-						_0: _user$project$StudentWork$divArtworkContent(model),
-						_1: {ctor: '[]'}
-					}
-				}
-			}
-		});
-};
 var _user$project$StudentWork$main = _elm_lang$html$Html$program(
-	{init: _user$project$StudentWork$init, view: _user$project$StudentWork$view, update: _user$project$StudentWork$update, subscriptions: _user$project$StudentWork$subscriptions})();
+	{init: _user$project$Model$init, view: _user$project$StudentWork$view, update: _user$project$Update$update, subscriptions: _user$project$StudentWork$subscriptions})();
 
 var Elm = {};
 Elm['StudentWork'] = Elm['StudentWork'] || {};

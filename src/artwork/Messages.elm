@@ -37,12 +37,21 @@ attributeFitWidth =
         ]
 
 
+centerElement : Attribute msg
+centerElement =
+    style
+        [ ( "display", "flex" )
+        , ( "justify-content", "center" )
+        , ( "align-items", "center" )
+        ]
+
+
 divTileImgGenerator : ImagePath -> HtmlAlt -> BulmaDimension -> Msg -> Html Msg
 divTileImgGenerator path altStr dimension msg =
     div [ class "tile is-child" ]
         [ a [ onClick msg ]
             [ figure
-                [ class <| "image is-unselectable " ++ dimension, attributeFitWidth ]
+                [ class <| "image is-unselectable " ++ dimension ]
                 [ img [ src path, alt altStr ] [] ]
             ]
         ]

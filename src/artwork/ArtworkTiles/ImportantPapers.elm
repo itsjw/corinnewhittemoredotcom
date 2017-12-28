@@ -1,7 +1,7 @@
 module ImportantPapers exposing (content)
 
-import Html exposing (..)
-import Html.Attributes exposing (..)
+import Html exposing (section, Html, div)
+import Html.Attributes exposing (class, style)
 import ImagePaths exposing (pathsImportantPapers)
 import Messages exposing (Msg(ImageClick), divTileImgGenerator)
 import Util exposing (unwrapPath, Series(ImportantPapers))

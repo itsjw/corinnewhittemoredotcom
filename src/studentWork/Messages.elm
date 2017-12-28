@@ -1,7 +1,15 @@
-module Messages exposing (Msg(GraphicDesignOne, DesignOne, IndependentStudy))
+module Messages exposing (Msg(Burger))
+
+
+type Subjects
+    = GraphicDesignOne
+    | DesignOne
+    | DesignTwo
+    | DigitalMedia
+    | Typography
+    | IndependentStudy
+    | HistoryOfGraphicDesign
 
 
 type Msg
-    = GraphicDesignOne
-    | DesignOne
-    | IndependentStudy
+    = Burger

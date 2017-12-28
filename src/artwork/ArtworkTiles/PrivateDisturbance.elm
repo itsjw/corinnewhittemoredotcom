@@ -22,11 +22,6 @@ attributeTextAlignJustify =
     style [ ( "text-align", "justify" ) ]
 
 
-attributeRightTilePadding : Attribute msg
-attributeRightTilePadding =
-    style [ ( "padding-top", "88px" ) ]
-
-
 
 -- html generation -------------------------------------------------------------
 
@@ -65,7 +60,7 @@ divTileWideImages =
 
 divTileIs6Right : Html Msg
 divTileIs6Right =
-    div [ class "tile is-vertical is-parent", attributeRightTilePadding ]
+    div [ class "tile is-vertical is-parent" ]
         [ divTileWideImages ]
 
 
@@ -89,7 +84,7 @@ divTileArtistStatement : Html msg
 divTileArtistStatement =
     div [ class "tile is-child" ]
         [ p [ class "title font-garamond", attributeTextAlignJustify ] [ text "Artist Statement" ]
-        , p [] [ text privateDisturbanceArtistStatement ]
+        , p [ attributeTextAlignJustify ] [ text privateDisturbanceArtistStatement ]
         ]
 
 
@@ -120,7 +115,10 @@ sectionPrivateDisturbance =
         [ div
             [ class "container"
             , style
-                [ ( "zoom", "0.8" ), ( "-moz-transform", "scale(0.8)" ) ]
+                [ ( "zoom", "0.8" )
+                , ( "-moz-transform-origin", "top" )
+                , ( "-moz-transform", "scale(0.8)" )
+                ]
             ]
             [ divTilePrivateDisturbance ]
         ]

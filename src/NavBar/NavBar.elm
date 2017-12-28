@@ -31,10 +31,7 @@ stylePaddingRight =
 imgLogo : String -> Html msg
 imgLogo path =
     img
-        [ src path
-        , alt "ecmw"
-        , height 28
-        ]
+        [ src path, alt "ecmw", height 28 ]
         []
 
 
@@ -107,19 +104,19 @@ divNavbarMenu status =
     div [ id "navMenubd", class <| isBurgerActiveMenuStr status ] [ divNavbarEnd ]
 
 
-navNavBar : Bool -> msg -> Html msg
-navNavBar status msg =
+type alias ImagePath =
+    String
+
+
+navNavBar : Bool -> msg -> ImagePath -> Html msg
+navNavBar status msg path =
     nav [ class "navbar" ]
         [ divNavbarBrand
             status
             msg
-            "../../images/ecmw_black.png"
+            path
         , divNavbarMenu status
         ]
-
-
-
--- validation
 
 
 isBurgerActiveCrossStr : Bool -> String
