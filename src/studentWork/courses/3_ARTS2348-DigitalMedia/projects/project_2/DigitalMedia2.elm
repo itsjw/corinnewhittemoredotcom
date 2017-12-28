@@ -3,7 +3,6 @@ module DigitalMedia2 exposing (..)
 import Dict
 import Html exposing (Html, button, text, div, img, ul, li, a, p)
 import Keyboard
-import List
 import BulmaCarousel as C
 import BulmaCarousel exposing (..)
 import CourseUtils
